@@ -1,9 +1,9 @@
 package org.yifan.hao;
 
 
-import com.OnLongClickListener;
 import com.google.gson.JsonObject;
-import com.panel.custom.JswCustomWight;
+import org.yifan.hao.swing.JswCustomWight;
+import org.yifan.hao.swing.OnLongClickListener;
 
 import javax.swing.*;
 import java.awt.*;
