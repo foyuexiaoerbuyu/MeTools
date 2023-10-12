@@ -3,7 +3,8 @@
     <CLASSES />
     <JAVADOC />
     <SOURCES>
-      <root url="file://$PROJECT_DIR$/MeUtils/src/main/java" />
+      <root url="file://$PROJECT_DIR$/TTools/src/main/java" />
+      <root url="file://$PROJECT_DIR$/TTools/src/test/java" />
     </SOURCES>
   </library>
 </component>
