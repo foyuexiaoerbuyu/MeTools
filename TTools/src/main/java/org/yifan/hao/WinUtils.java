@@ -3,7 +3,7 @@ package org.yifan.hao;
 
 import com.google.gson.JsonObject;
 import org.yifan.hao.swing.JswCustomWight;
-import org.yifan.hao.swing.OnLongClickListener;
+import org.yifan.hao.swing.JswOnLongClickListener;
 
 import javax.swing.*;
 import java.awt.*;
@@ -764,7 +764,7 @@ public class WinUtils {
 
         Robot r = new Robot();
 
-        JButton testBtn = JswCustomWight.getJButtonMargin("开始", new OnLongClickListener() {
+        JButton testBtn = JswCustomWight.getJButtonMargin("开始", new JswOnLongClickListener() {
             @Override
             public void onClick() {
             }
@@ -785,7 +785,7 @@ public class WinUtils {
             }
         });
 
-        frame.add(JswCustomWight.getJButtonMargin("上一页", new OnLongClickListener() {
+        frame.add(JswCustomWight.getJButtonMargin("上一页", new JswOnLongClickListener() {
             @Override
             public void onClick() {
                 r.delay(2000);
@@ -800,13 +800,13 @@ public class WinUtils {
 //                WinUtils.mouseMove(r, 859, 222);
             }
         }));
-        frame.add(JswCustomWight.getJButtonMargin("下一页", new OnLongClickListener() {
+        frame.add(JswCustomWight.getJButtonMargin("下一页", new JswOnLongClickListener() {
             @Override
             public void onClick() {
                 WinUtils.keyPressPageUp(r);
             }
         }));
-        frame.add(JswCustomWight.getJButtonMargin("复制到文件", new OnLongClickListener() {
+        frame.add(JswCustomWight.getJButtonMargin("复制到文件", new JswOnLongClickListener() {
             @Override
             public void onClick() {
                 System.out.println("sy");

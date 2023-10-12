@@ -11,16 +11,16 @@ import java.io.File;
 import java.util.List;
 import java.util.TooManyListenersException;
 
-public class FileDropLabel extends JLabel {
+public class JswFileDropLabel extends JLabel {
 
 
     private IFileDropLabelCallBack iFileDropLabelCallBack;
 
-    public FileDropLabel() {
+    public JswFileDropLabel() {
         initDropTarget();
     }
 
-    public FileDropLabel(IFileDropLabelCallBack iFileDropLabelCallBack) {
+    public JswFileDropLabel(IFileDropLabelCallBack iFileDropLabelCallBack) {
         this.iFileDropLabelCallBack = iFileDropLabelCallBack;
         initDropTarget();
     }
@@ -76,7 +76,7 @@ public class FileDropLabel extends JLabel {
             frame.setSize(300, 200);
             frame.setLocationRelativeTo(null);
 
-            FileDropLabel label = new FileDropLabel();
+            JswFileDropLabel label = new JswFileDropLabel();
             label.setText("Drop files here");
             label.setHorizontalAlignment(SwingConstants.CENTER);
             frame.add(label);

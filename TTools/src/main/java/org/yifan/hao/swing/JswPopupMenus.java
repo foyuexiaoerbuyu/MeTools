@@ -18,12 +18,12 @@ import javax.swing.*;
  * *        }));
  * </code>
  */
-public class JPopupMenus extends JPopupMenu {
+public class JswPopupMenus extends JPopupMenu {
 
-    public JPopupMenus() {
+    public JswPopupMenus() {
     }
 
-    public JPopupMenus(JPopupMenusClicks jPopupMenusClick, String... btns) {
+    public JswPopupMenus(JPopupMenusClicks jPopupMenusClick, String... btns) {
         for (int i = 0; i < btns.length; i++) {
             int index = i;
             JMenuItem menuItem1 = new JMenuItem(btns[index]);
@@ -34,7 +34,7 @@ public class JPopupMenus extends JPopupMenu {
         }
     }
 
-    public JPopupMenus addMenu(String itemMenuName, JPopupMenusClick jPopupMenusClick) {
+    public JswPopupMenus addMenu(String itemMenuName, JPopupMenusClick jPopupMenusClick) {
         JMenuItem menuItem1 = new JMenuItem(itemMenuName);
         menuItem1.addActionListener(e -> {
             jPopupMenusClick.click(itemMenuName);

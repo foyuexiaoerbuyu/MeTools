@@ -321,8 +321,8 @@ public class JswCustomWight {
      * 文本
      */
     public static JLabel getFileDropLabel(int x, int y, int w, int h,
-                                          String text, FileDropLabel.IFileDropLabelCallBack iFileDropLabelCallBack) {
-        FileDropLabel fileDropLabel = new FileDropLabel(iFileDropLabelCallBack);
+                                          String text, JswFileDropLabel.IFileDropLabelCallBack iFileDropLabelCallBack) {
+        JswFileDropLabel fileDropLabel = new JswFileDropLabel(iFileDropLabelCallBack);
         fileDropLabel.setBounds(x, y, w, h);
         fileDropLabel.setText(text);
         fileDropLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -341,7 +341,7 @@ public class JswCustomWight {
     /**
      * 文本
      */
-    public static JLabel getJLabel(int x, int y, int w, int h, String text, OnLongClickListener onLongClickListener) {
+    public static JLabel getJLabel(int x, int y, int w, int h, String text, JswOnLongClickListener onLongClickListener) {
         JLabel label = new JLabel(text);
         label.setBounds(x, y, w, h);
         label.addMouseListener(onLongClickListener);
@@ -351,7 +351,7 @@ public class JswCustomWight {
     /**
      * 文本
      */
-    public static JLabel getJLabel(int w, int h, String text, OnLongClickListener onLongClickListener) {
+    public static JLabel getJLabel(int w, int h, String text, JswOnLongClickListener onLongClickListener) {
         JLabel label = new JLabel(text);
         label.setBounds(new Rectangle(w, h));
         label.addMouseListener(onLongClickListener);
@@ -380,7 +380,7 @@ public class JswCustomWight {
         return label;
     }
 
-    public static JButton getJButtonMargin(String text, OnLongClickListener actionListener) {
+    public static JButton getJButtonMargin(String text, JswOnLongClickListener actionListener) {
         JButton jButton = new JButton(text);
 //        label.setMargin(new Insets(0, 0, 0, 0)); // 设置按钮的内边距为0
         jButton.addMouseListener(actionListener);
@@ -388,7 +388,7 @@ public class JswCustomWight {
         return jButton;
     }
 
-    public static JButton getJButtonMargin(String text, String tipText, OnLongClickListener actionListener) {
+    public static JButton getJButtonMargin(String text, String tipText, JswOnLongClickListener actionListener) {
         JButton jButton = new JButton(text);
 //        label.setMargin(new Insets(0, 0, 0, 0)); // 设置按钮的内边距为0
         jButton.addMouseListener(actionListener);
@@ -400,7 +400,7 @@ public class JswCustomWight {
     /**
      * 长按按钮
      */
-    public static JButton getJButton(String text, OnLongClickListener actionListener) {
+    public static JButton getJButton(String text, JswOnLongClickListener actionListener) {
         JButton label = new JButton(text);
         label.setMargin(new Insets(0, 0, 0, 0)); // 设置按钮的内边距为0
         actionListener.setBtnText(text);
@@ -423,7 +423,7 @@ public class JswCustomWight {
     /**
      * 按钮 长按监听
      */
-    public static JButton getJButton(int x, int y, int w, int h, String text, OnLongClickListener actionListener) {
+    public static JButton getJButton(int x, int y, int w, int h, String text, JswOnLongClickListener actionListener) {
         JButton label = new JButton(text);
         label.setBounds(x, y, w, h);
         label.setMargin(new Insets(0, 0, 0, 0)); // 设置按钮的内边距为0

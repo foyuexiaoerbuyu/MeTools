@@ -13,7 +13,7 @@ import java.awt.event.MouseEvent;
  * boolean isShiftDown()、boolean isControlDown()、boolean isAltDown()等：检查鼠标事件发生时是否按下了Shift、Ctrl、Alt等修饰键。如果按下了相应的修饰键，则返回true；否则返回false。
  * long getWhen()：获取鼠标事件发生的时间戳。返回一个表示事件发生时间的长整型值，以毫秒为单位。
  */
-public abstract class OnLongClickListener extends MouseAdapter {
+public abstract class JswOnLongClickListener extends MouseAdapter {
 
 
     private int count = 0;
