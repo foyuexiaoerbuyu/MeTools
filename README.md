@@ -2,6 +2,9 @@
 
 java工具类
 
+https://jitpack.io/#foyuexiaoerbuyu/MeTools
+https://github.com/foyuexiaoerbuyu/MeTools
+
 To get a Git project into your build:
 
 Step 1. Add the JitPack repository to your build file
@@ -23,5 +26,5 @@ Step 2. Add the dependency
 	<dependency>
 	    <groupId>com.github.foyuexiaoerbuyu</groupId>
 	    <artifactId>MeTools</artifactId>
-	    <version>Tag</version>
+	    <version>0.06</version>
 	</dependency>
