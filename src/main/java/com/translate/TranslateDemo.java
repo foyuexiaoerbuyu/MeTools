@@ -1,7 +1,7 @@
 package com.translate;
 
 
-import com.other.GsonUtils;
+import org.yifan.hao.GsonUtils;
 import com.translate.utils.AuthV3Util;
 import com.translate.utils.HttpUtil;
 import com.translate.utils.TranslateBean;

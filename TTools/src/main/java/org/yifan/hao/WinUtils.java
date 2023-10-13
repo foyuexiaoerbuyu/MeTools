@@ -841,5 +841,14 @@ public class WinUtils {
 
     }
 
+    /**
+     * 是否为盘符开头
+     */
+    public static boolean startsWithWindowsDrive(String str) {
+        if (str == null) return false;
+        // 使用正则表达式判断字符串是否以 Windows 盘符开头
+        return str.trim().matches("^[A-Za-z]:\\\\.*");
+    }
+
 
 }

@@ -1,7 +1,7 @@
 package com.panel.tab;
 
 import com.other.Constant;
-import com.other.DialogUtils;
+import org.yifan.hao.swing.JswDialogUtils;
 
 
 
@@ -73,12 +73,12 @@ public class ToolsTabTest {
                     @Override
                     public void onException(Exception exception) {
                         exception.printStackTrace();
-                        DialogUtils.showAutoCloseDialog("重命名异常: " + exception.getMessage());
+                        JswDialogUtils.showAutoCloseDialog("重命名异常: " + exception.getMessage());
                     }
 
                     @Override
                     public void end() {
-                        DialogUtils.showAutoCloseDialog("重命名成功");
+                        JswDialogUtils.showAutoCloseDialog("重命名成功");
                     }
                 });
             }
@@ -134,13 +134,13 @@ public class ToolsTabTest {
 
             @Override
             public void onLongClick() {
-                readLineNum = Integer.parseInt(DialogUtils.showEditDialogSimple("", "", "5"));
+                readLineNum = Integer.parseInt(JswDialogUtils.showEditDialogSimple("", "", "5"));
             }
         }));
         flowLayoutPanel.add(JswCustomWight.getJButtonMargin("排除剪贴板特定开头行", new JswOnLongClickListener() {
             @Override
             public void onClick() {
-                String s = DialogUtils.showEditDialogSimple("", "", "");
+                String s = JswDialogUtils.showEditDialogSimple("", "", "");
                 StringBuilder sb = new StringBuilder();
                 StringUtil.readStrByLins(WinUtils.getSysClipboardText(), lin -> {
                     if (lin.trim().length() > 0 && !lin.startsWith(s)) {
@@ -153,7 +153,7 @@ public class ToolsTabTest {
         flowLayoutPanel.add(JswCustomWight.getJButtonMargin("排除剪贴板小于特定长度行", new JswOnLongClickListener() {
             @Override
             public void onClick() {
-                String s = DialogUtils.showEditDialogSimple("", "", "50");
+                String s = JswDialogUtils.showEditDialogSimple("", "", "50");
                 StringBuilder sb = new StringBuilder();
                 StringUtil.readStrByLins(WinUtils.getSysClipboardText(), lin -> {
                     if (lin.length() > Integer.parseInt(s)) {

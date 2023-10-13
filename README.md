@@ -28,7 +28,7 @@ Step 2. Add the dependency
 	<dependency>
 	    <groupId>com.github.foyuexiaoerbuyu</groupId>
 	    <artifactId>MeTools</artifactId>
-	    <version>0.06</version>
+	    <version>0.07</version>
 	</dependency>
  
 gradle
@@ -45,6 +45,6 @@ Step 1. Add it in your root build.gradle at the end of repositories:
 Step 2. Add the dependency
 
 	dependencies {
-	        implementation 'com.github.foyuexiaoerbuyu:MeTools:Tag'
+	        implementation 'com.github.foyuexiaoerbuyu:MeTools:0.07'
 	}
 Share this release:

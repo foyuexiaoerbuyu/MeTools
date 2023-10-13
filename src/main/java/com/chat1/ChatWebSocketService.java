@@ -1,7 +1,7 @@
 package com.chat1;
 
 
-import com.other.GsonUtils;
+import org.yifan.hao.GsonUtils;
 import org.java_websocket.WebSocket;
 import org.java_websocket.handshake.ClientHandshake;
 import org.java_websocket.server.WebSocketServer;

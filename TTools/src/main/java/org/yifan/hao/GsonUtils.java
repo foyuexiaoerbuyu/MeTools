@@ -1,4 +1,4 @@
-package com.other;
+package org.yifan.hao;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;

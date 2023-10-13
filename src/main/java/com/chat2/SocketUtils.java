@@ -2,7 +2,7 @@ package com.chat2;
 
 import com.chat1.ChatMsg;
 import com.other.Constant;
-import com.other.GsonUtils;
+import org.yifan.hao.GsonUtils;
 import org.yifan.hao.FileUtils;
 
 

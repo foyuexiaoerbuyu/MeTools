@@ -1,7 +1,7 @@
 package com.zhihu.other;
 
 import com.other.Constant;
-import com.other.GsonUtils;
+import org.yifan.hao.GsonUtils;
 import org.yifan.hao.FileUtils;
 
 

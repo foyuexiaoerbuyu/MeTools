@@ -4,8 +4,8 @@ import com.chat1.ChatMsg;
 import com.chat1.ChatWebSocketService;
 import com.chat1.IChatServiceCallBack;
 import com.other.Constant;
-import com.other.DialogUtils;
-import com.other.GsonUtils;
+import org.yifan.hao.swing.JswDialogUtils;
+import org.yifan.hao.GsonUtils;
 import com.other.QRCodeGenerator;
 
 import org.yifan.hao.DateUtil;
@@ -169,11 +169,11 @@ public class ToolsTab3 implements IChatServiceCallBack {
                 chatWebSocket.stopService();
             }
             if (isShowDialog) {
-                DialogUtils.showAutoCloseDialog("服务已停止", 1000);
+                JswDialogUtils.showAutoCloseDialog("服务已停止", 1000);
             }
         } catch (InterruptedException e) {
             if (isShowDialog) {
-                DialogUtils.showAutoCloseDialog("服务停止失败:" + e.getMessage());
+                JswDialogUtils.showAutoCloseDialog("服务停止失败:" + e.getMessage());
             }
             e.printStackTrace();
         }
@@ -196,7 +196,7 @@ public class ToolsTab3 implements IChatServiceCallBack {
             if (e.getMessage().contains("Address already in use: bind")) {
                 System.out.println("端口被占用.");
             }
-            DialogUtils.showAutoCloseDialog("服务启动异常,端口被占用!");
+            JswDialogUtils.showAutoCloseDialog("服务启动异常,端口被占用!");
             e.printStackTrace();
         }
     }
@@ -204,7 +204,7 @@ public class ToolsTab3 implements IChatServiceCallBack {
     @Override
     public void errMsg(String errMsg) {
         System.out.println("errMsg = " + errMsg);
-        DialogUtils.showAutoCloseDialog(errMsg);
+        JswDialogUtils.showAutoCloseDialog(errMsg);
     }
 
     @Override
@@ -214,7 +214,7 @@ public class ToolsTab3 implements IChatServiceCallBack {
         if (chatMsg.getMsgType() == ChatMsg.MSG_TYPE_FILE) {
             FileUtils.writeFile(Constant.PATH_FILE_DIR + chatMsg.getFileName(), chatMsg.getFileData(), true);
             WinUtils.opeDir(Constant.PATH_FILE_DIR);
-            DialogUtils.showAutoCloseDialog("接收完毕");
+            JswDialogUtils.showAutoCloseDialog("接收完毕");
         } else {
             System.out.println("serviceMsg = " + chatMsg.getMsgContent());
             jLabel.setText(DateUtil.formatCurrentDate(DateUtil.REGEX_DATE_TIME) + "\n   " + chatMsg.getMsgContent() + "\n");

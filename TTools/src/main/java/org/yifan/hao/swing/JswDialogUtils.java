@@ -1,4 +1,4 @@
-package com.other;
+package org.yifan.hao.swing;
 
 import javax.swing.*;
 import java.awt.*;
@@ -8,7 +8,7 @@ import java.awt.event.*;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class DialogUtils {
+public class JswDialogUtils {
 
     public interface IDialogClick {
         void okBtnClick();

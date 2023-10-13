@@ -1,6 +1,6 @@
 package com.chat1;
 
-import com.other.GsonUtils;
+import org.yifan.hao.GsonUtils;
 
 public class ChatMsg {
     /*文本消息(ChatMsg对象);文件类型(ChatMsg对象);*/

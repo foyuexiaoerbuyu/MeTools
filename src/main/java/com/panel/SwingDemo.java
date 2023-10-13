@@ -2,7 +2,7 @@ package com.panel;
 
 
 import com.other.Constant;
-import com.other.DialogUtils;
+import org.yifan.hao.swing.JswDialogUtils;
 import com.panel.tab.ToolsTab1;
 import com.panel.tab.ToolsTab2;
 import com.panel.tab.ToolsTab3;
@@ -57,7 +57,7 @@ public class SwingDemo implements ActionListener {
                         return true;  // 返回true，标记事件为已处理
                     } else if (e.getKeyCode() == KeyEvent.VK_2) {
                         WinUtils.sysClipboardTextToFile(Constant.PATH_CACHE_DIR);
-                        DialogUtils.showAutoCloseDialog("已生成文件", 600);
+                        JswDialogUtils.showAutoCloseDialog("已生成文件", 600);
                         frame.setState(JFrame.ICONIFIED);
                         System.out.println("KeyEvent dispatched: Alt+2");
                         return true;  // 返回true，标记事件为已处理

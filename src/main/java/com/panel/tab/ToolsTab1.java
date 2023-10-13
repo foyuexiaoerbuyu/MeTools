@@ -2,7 +2,7 @@ package com.panel.tab;
 
 import com.other.CommAdbs;
 import com.other.Constant;
-import com.other.DialogUtils;
+import org.yifan.hao.swing.JswDialogUtils;
 import com.other.QRCodeGenerator;
 import com.panel.custom.EditDialog;
 import com.panel.custom.ToolsTabUtils;
@@ -94,10 +94,10 @@ public class ToolsTab1 {
             try {
                 String str = TranslateDemo.startTranslators(WinUtils.getSysClipboardText());
                 jtCmdLins.setText(str);
-                DialogUtils.showAutoCloseDialog("已翻译", 500);
+                JswDialogUtils.showAutoCloseDialog("已翻译", 500);
             } catch (NoSuchAlgorithmException noSuchAlgorithmException) {
                 noSuchAlgorithmException.printStackTrace();
-                DialogUtils.show("异常: " + noSuchAlgorithmException.getMessage());
+                JswDialogUtils.show("异常: " + noSuchAlgorithmException.getMessage());
             }
         }));
         container.add(qrCodeBtn);
@@ -418,7 +418,7 @@ public class ToolsTab1 {
             public void onClick() {
                 String text = FileUtils.readFile(Constant.path_tmp_clipboard_1);
                 WinUtils.setSysClipboardText(text);
-                DialogUtils.showAutoCloseDialog("复制成功");
+                JswDialogUtils.showAutoCloseDialog("复制成功");
             }
         }));
         flowLayoutPanel.setBounds(0, hang7Y, 415, 300);
@@ -473,7 +473,7 @@ public class ToolsTab1 {
             public void onLongClick() {
                 AdbUtils.pullFile(jComboBoxEdit.getSelectedItem() + "", null);
                 WinUtils.opeDir("D:/tmp");
-                DialogUtils.show("拉取完成,正在打开");
+                JswDialogUtils.show("拉取完成,正在打开");
             }
         }));
 
@@ -482,10 +482,10 @@ public class ToolsTab1 {
         flowLayoutPanel1.add(JswCustomWight.getJButton("长按重启手机", new JswOnLongClickListener() {
             @Override
             public void onClick() {
-                DialogUtils.showConfirmDialog("关机", "确定关机吗?", () -> {
+                JswDialogUtils.showConfirmDialog("关机", "确定关机吗?", () -> {
                     // 用户点击了确定按钮
                     AdbUtils.exeCmd("adb shell reboot -p");
-                    DialogUtils.showAutoCloseDialog("正在关机");
+                    JswDialogUtils.showAutoCloseDialog("正在关机");
                     System.out.println("执行操作");
                 });
             }
@@ -493,7 +493,7 @@ public class ToolsTab1 {
             @Override
             public void onLongClick() {
                 AdbUtils.exeCmd("adb reboot");
-                DialogUtils.showAutoCloseDialog("正在重启");
+                JswDialogUtils.showAutoCloseDialog("正在重启");
             }
         }));
         flowLayoutPanel1.add(JswCustomWight.getJButton("去空格回车", new JswOnLongClickListener() {
@@ -514,14 +514,14 @@ public class ToolsTab1 {
             public void onClick() {
                 String phoneBaseInfo = AdbUtils.getPhoneBaseInfo();
                 System.out.println("phoneBaseInfo = " + phoneBaseInfo);
-                DialogUtils.show(phoneBaseInfo);
+                JswDialogUtils.show(phoneBaseInfo);
             }
         }));
         flowLayoutPanel1.add(JswCustomWight.getJButton("修改分辨率", new JswOnLongClickListener() {
             @Override
             public void onClick() {
                 String currPx = AdbUtils.exeCmd("adb shell wm size");
-                String cmd = DialogUtils.showEditDialogSimple("请输入分辨率(中间空格)", "当前分辨率: " + currPx, "1080x1920")
+                String cmd = JswDialogUtils.showEditDialogSimple("请输入分辨率(中间空格)", "当前分辨率: " + currPx, "1080x1920")
                         .trim().replace(" ", "x").replace("*", "x");
                 System.out.println("cmd = " + cmd);
                 AdbUtils.exeCmd("adb shell wm size " + cmd);
@@ -539,7 +539,7 @@ public class ToolsTab1 {
             public void onClick() {
                 String density = AdbUtils.exeCmd("adb shell wm density");
                 WinUtils.setSysClipboardText(density);
-                DialogUtils.show(density);
+                JswDialogUtils.show(density);
             }
         }));
         AtomicInteger atomicInteger = new AtomicInteger();
@@ -547,7 +547,7 @@ public class ToolsTab1 {
         flowLayoutPanel1.add(JswCustomWight.getJButton("设置(屏幕)dpi密度", new JswOnLongClickListener() {
             @Override
             public void onClick() {
-                String cmd = DialogUtils.showEditDialogSimple("请输入密度", "常用的dpi有160mdpi, 240hdpi, 320xhdpi, 480xxhdpi", atomicInteger.getAndIncrement() + "");
+                String cmd = JswDialogUtils.showEditDialogSimple("请输入密度", "常用的dpi有160mdpi, 240hdpi, 320xhdpi, 480xxhdpi", atomicInteger.getAndIncrement() + "");
                 System.out.println("cmd = " + cmd);
                 atomicInteger.set(Integer.parseInt(cmd));
                 AdbUtils.exeCmd("adb shell wm density " + cmd);

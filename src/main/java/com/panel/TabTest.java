@@ -2,7 +2,7 @@ package com.panel;
 
 import com.chat1.ChatWebSocketService;
 import com.chat1.IChatServiceCallBack;
-import com.other.DialogUtils;
+import org.yifan.hao.swing.JswDialogUtils;
 import com.other.QRCodeGenerator;
 import org.yifan.hao.WinUtils;
 import org.yifan.hao.swing.JswCustomWight;
@@ -113,9 +113,9 @@ public class TabTest implements IChatServiceCallBack {
                     if (chatWebSocket != null) {
                         chatWebSocket.stopService();
                     }
-                    DialogUtils.showAutoCloseDialog("服务已停止", 1000);
+                    JswDialogUtils.showAutoCloseDialog("服务已停止", 1000);
                 } catch (InterruptedException e) {
-                    DialogUtils.showAutoCloseDialog("服务停止失败:" + e.getMessage());
+                    JswDialogUtils.showAutoCloseDialog("服务停止失败:" + e.getMessage());
                     e.printStackTrace();
                 }
             }
@@ -139,7 +139,7 @@ public class TabTest implements IChatServiceCallBack {
     @Override
     public void errMsg(String errMsg) {
         System.out.println("errMsg = " + errMsg);
-        DialogUtils.showAutoCloseDialog(errMsg);
+        JswDialogUtils.showAutoCloseDialog(errMsg);
     }
 
     @Override
