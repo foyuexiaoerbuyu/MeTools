@@ -87,12 +87,12 @@ public class ChatMsg {
         this.fileData = fileData;
     }
 
-    public void setFileSize(long fileSize) {
-        this.fileSize = fileSize;
-    }
-
     public long getFileSize() {
         return fileSize;
+    }
+
+    public void setFileSize(long fileSize) {
+        this.fileSize = fileSize;
     }
 
     public String getExtra() {

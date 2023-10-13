@@ -15,7 +15,7 @@ public class WindowAlert {
 
     /**
      * @param title 标题
-     * @param msg 消息
+     * @param msg   消息
      */
     public static boolean display(String title, String msg) {
         // 创建舞台

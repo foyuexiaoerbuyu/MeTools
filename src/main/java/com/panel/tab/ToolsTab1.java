@@ -2,23 +2,17 @@ package com.panel.tab;
 
 import com.other.CommAdbs;
 import com.other.Constant;
-import org.yifan.hao.swing.JswDialogUtils;
 import com.other.QRCodeGenerator;
 import com.panel.custom.EditDialog;
 import com.panel.custom.ToolsTabUtils;
 import com.translate.TranslateDemo;
-
-
-
-
-
-
 import com.zhihu.other.CommUtils;
 import org.yifan.hao.AdbUtils;
 import org.yifan.hao.FileUtils;
 import org.yifan.hao.StringUtil;
 import org.yifan.hao.WinUtils;
 import org.yifan.hao.swing.JswCustomWight;
+import org.yifan.hao.swing.JswDialogUtils;
 import org.yifan.hao.swing.JswOnLongClickListener;
 
 import javax.swing.*;

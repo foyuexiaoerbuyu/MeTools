@@ -2,13 +2,12 @@ package com.panel;
 
 
 import com.other.Constant;
-import org.yifan.hao.swing.JswDialogUtils;
 import com.panel.tab.ToolsTab1;
 import com.panel.tab.ToolsTab2;
 import com.panel.tab.ToolsTab3;
 import com.panel.tab.ToolsTabTest;
 import org.yifan.hao.WinUtils;
-
+import org.yifan.hao.swing.JswDialogUtils;
 
 import javax.swing.*;
 import java.awt.*;
@@ -138,6 +137,10 @@ public class SwingDemo implements ActionListener {
         }
     }
 
+    public static void main(String[] args) {
+        new SwingDemo();
+    }
+
     private boolean tryAcquireLock() {
         try {
             File lockFile = new File(LOCK_FILE_PATH);
@@ -165,11 +168,6 @@ public class SwingDemo implements ActionListener {
             e.printStackTrace();
         }
     }
-
-    public static void main(String[] args) {
-        new SwingDemo();
-    }
-
 
     @Override
     public void actionPerformed(ActionEvent e) {

@@ -1,12 +1,11 @@
 package com.translate;
 
 
-import org.yifan.hao.GsonUtils;
 import com.translate.utils.AuthV3Util;
 import com.translate.utils.HttpUtil;
 import com.translate.utils.TranslateBean;
+import org.yifan.hao.GsonUtils;
 import org.yifan.hao.WinUtils;
-
 
 import java.nio.charset.StandardCharsets;
 import java.security.NoSuchAlgorithmException;

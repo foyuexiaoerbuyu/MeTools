@@ -2,10 +2,6 @@ package com.zhihu;
 
 import com.google.gson.Gson;
 import com.other.Constant;
-
-
-
-
 import com.zhihu.other.BaseUrl;
 import com.zhihu.other.CollectionEnt;
 import com.zhihu.other.CollectionEnt.DataBean;
@@ -165,12 +161,6 @@ public class ZhihuUtils {
         }
     }
 
-    public static void setAdbs(String adb) {
-        if (!StringUtil.isBlank(adb)) {
-            CommUtils.setPrivateInfo(Constant.CONFIG_KEY_ADBS, adb);
-        }
-    }
-
     public static String getAdbsStr() {
         String privateInfo = CommUtils.getPrivateInfo(Constant.CONFIG_KEY_CATEGORY, null);
         if (privateInfo.length() == 0) {
@@ -186,6 +176,12 @@ public class ZhihuUtils {
         }
         return privateInfo
                 .split(";");
+    }
+
+    public static void setAdbs(String adb) {
+        if (!StringUtil.isBlank(adb)) {
+            CommUtils.setPrivateInfo(Constant.CONFIG_KEY_ADBS, adb);
+        }
     }
 
     /**

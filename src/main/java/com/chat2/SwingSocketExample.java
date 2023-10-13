@@ -13,6 +13,12 @@ public class SwingSocketExample {
     public SwingSocketExample() {
     }
 
+    public static void main(String[] args) {
+        SwingSocketExample example = new SwingSocketExample();
+        example.start();
+//        example.startService();
+    }
+
     private void start() {
         JFrame jFrame = new JFrame();
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -91,12 +97,6 @@ public class SwingSocketExample {
         jFrame.add(buttonPanel);
         jFrame.add(tv);
         jFrame.setVisible(true);
-    }
-
-    public static void main(String[] args) {
-        SwingSocketExample example = new SwingSocketExample();
-        example.start();
-//        example.startService();
     }
 
 }

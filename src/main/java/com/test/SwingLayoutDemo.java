@@ -1,7 +1,6 @@
 package com.test;
 
 
-
 import org.yifan.hao.swing.JswCustomWight;
 
 import javax.swing.*;
@@ -67,7 +66,7 @@ public class SwingLayoutDemo {
                 public void mouseClicked(MouseEvent e) {
                     if (e.getClickCount() == 1) {
                         System.out.println("单击了项目: " + list.getSelectedValue());
-                    }else if (e.getClickCount() == 2) {
+                    } else if (e.getClickCount() == 2) {
                         System.out.println("双击了项目: " + list.getSelectedValue());
                     }
                 }

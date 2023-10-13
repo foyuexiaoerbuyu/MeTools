@@ -15,6 +15,13 @@ public class MultiClient extends Thread {
     public MultiClient() {
     }
 
+    public static void main(String[] args) {
+        // 主线程执行写操作，发送消息到服务器
+        MultiClient mcc = new MultiClient();
+        mcc.startClient();
+        mcc.start();
+    }
+
     public void startClient() {
         try {
             clientSocket = new Socket(WinUtils.getIpV4(), 3243);
@@ -85,7 +92,6 @@ public class MultiClient extends Thread {
         bis.close();
     }
 
-
     public byte[] reviseArr(byte[] by, int res) {
         byte[] newByteArr = new byte[by.length + 2];
         // 将by字节数组的内容都往后移动两位，即头部的两个位置空出来作为标志位
@@ -140,12 +146,5 @@ public class MultiClient extends Thread {
                 e.printStackTrace();
             }
         }
-    }
-
-    public static void main(String[] args) {
-        // 主线程执行写操作，发送消息到服务器
-        MultiClient mcc = new MultiClient();
-        mcc.startClient();
-        mcc.start();
     }
 }

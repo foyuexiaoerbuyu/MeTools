@@ -4,16 +4,14 @@ import com.chat1.ChatMsg;
 import com.chat1.ChatWebSocketService;
 import com.chat1.IChatServiceCallBack;
 import com.other.Constant;
-import org.yifan.hao.swing.JswDialogUtils;
-import org.yifan.hao.GsonUtils;
 import com.other.QRCodeGenerator;
-
 import org.yifan.hao.DateUtil;
 import org.yifan.hao.FileUtils;
+import org.yifan.hao.GsonUtils;
 import org.yifan.hao.WinUtils;
 import org.yifan.hao.swing.JswCustomWight;
+import org.yifan.hao.swing.JswDialogUtils;
 import org.yifan.hao.swing.JswOnLongClickListener;
-
 
 import javax.swing.*;
 import java.awt.*;
@@ -26,15 +24,14 @@ import java.io.File;
 
 public class ToolsTab3 implements IChatServiceCallBack {
 
+    int hang1Y = 10, hang2Y = 45, hang3Y = 80, hang4Y = 115, hang5Y = 150, hang6Y = 185, hang7Y = 215, hang8Y = 245, hang9Y = 275;
+    int lie1X = 10;
     private ChatWebSocketService chatWebSocket;
     private JLabel jLabel;
-
     /* 行高 */
     private int btnHeight = 30;
     /*行间距*/
     private int hSpace = 40;
-    int hang1Y = 10, hang2Y = 45, hang3Y = 80, hang4Y = 115, hang5Y = 150, hang6Y = 185, hang7Y = 215, hang8Y = 245, hang9Y = 275;
-    int lie1X = 10;
     private JTextArea jtaAddress;
 
     /**

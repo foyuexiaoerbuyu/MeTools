@@ -6,7 +6,7 @@ package com.other;
  */
 public class ShellCommandConversionUtils {
 
-    private static final char[] SPECIAL_CHARS = new char[]{'*', '?', '[', ']', '{', '}', ' ', 0x0D, '=',  '>', '<', '|', '&', '(', ')', ';', '!', '\\', '\'', '"'};
+    private static final char[] SPECIAL_CHARS = new char[]{'*', '?', '[', ']', '{', '}', ' ', 0x0D, '=', '>', '<', '|', '&', '(', ')', ';', '!', '\\', '\'', '"'};
 
     public static String convert(String line) {
         char[] chars = line.toCharArray();

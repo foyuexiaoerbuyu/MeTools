@@ -14,7 +14,7 @@ public class GridLayout extends GridPane {
     }
 
     /**
-     * @param line 行
+     * @param line   行
      * @param column 列
      */
     public GridLayout(int line, int column) {

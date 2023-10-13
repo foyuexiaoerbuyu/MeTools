@@ -1,11 +1,11 @@
 package com.chat1;
 
 
-import org.yifan.hao.GsonUtils;
 import org.java_websocket.WebSocket;
 import org.java_websocket.handshake.ClientHandshake;
 import org.java_websocket.server.WebSocketServer;
 import org.yifan.hao.FileUtils;
+import org.yifan.hao.GsonUtils;
 import org.yifan.hao.WinUtils;
 
 import java.io.File;
@@ -28,6 +28,7 @@ import java.util.List;
  */
 public class ChatWebSocketService extends WebSocketServer implements ISendMsg {
 
+    private static final int BUFFER_SIZE = 1024 * 1024; // 1 MB
     /**
      * 端口
      */
@@ -48,10 +49,10 @@ public class ChatWebSocketService extends WebSocketServer implements ISendMsg {
         iServiceCallBack = iChatServiceCallBackClass;
     }
 
+
     public ChatWebSocketService(InetSocketAddress address) {
         super(address);
     }
-
 
     public static ChatWebSocketService startService(int port) throws UnknownHostException {
         System.out.println("port = " + port);
@@ -77,7 +78,6 @@ public class ChatWebSocketService extends WebSocketServer implements ISendMsg {
 //        }
         return s;
     }
-
 
     public void stopService() throws InterruptedException {
         this.stop(1000, "pc主动停止服务");
@@ -162,9 +162,6 @@ public class ChatWebSocketService extends WebSocketServer implements ISendMsg {
         iServiceCallBack.log("服务已启动: " + WinUtils.getIpV4() + ":" + port);
 //        Platform.runLater(() -> DialogUtils.showAutoCloseDialog("服务已启动", 1000));
     }
-
-
-    private static final int BUFFER_SIZE = 1024 * 1024; // 1 MB
 
     public void sendFileToClient(String filePath) {
         File file = new File(filePath);

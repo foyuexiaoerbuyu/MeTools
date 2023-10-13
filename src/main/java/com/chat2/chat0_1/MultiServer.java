@@ -15,7 +15,13 @@ public class MultiServer {
 
 
     Socket serviceSocket = null;
+
     public MultiServer() {
+    }
+
+    public static void main(String[] args) {
+        MultiServer multiServer = new MultiServer();
+        multiServer.start();
     }
 
     public void start() {
@@ -85,7 +91,6 @@ public class MultiServer {
         bos.close();
     }
 
-
     public byte[] reviseArr(byte[] by, int res) {
         byte[] newByteArr = new byte[by.length + 2];
         // 将by字节数组的内容都往后移动两位，即头部的两个位置空出来作为标志位
@@ -93,13 +98,6 @@ public class MultiServer {
             newByteArr[i + 2] = by[i];
         }
         return newByteArr;
-    }
-
-
-
-    public static void main(String[] args) {
-        MultiServer multiServer = new MultiServer();
-        multiServer.start();
     }
 }
 

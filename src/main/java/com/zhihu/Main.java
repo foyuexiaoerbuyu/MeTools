@@ -9,6 +9,7 @@ import org.yifan.hao.FileUtils;
 public class Main {
 
     static long maxSize;
+
     public static void main(String[] args) throws Exception {
         // TODO Auto-generated method stub
 //        zhihu("社会");

@@ -4,7 +4,7 @@ package com.other;
 /**
  * http://www.360doc.com/content/13/0807/13/5224731_305347225.shtml
  */
-public class KeyEvent  {
+public class KeyEvent {
     public static final int ACTION_DOWN = 0;
     public static final int ACTION_MULTIPLE = 2;
     public static final int ACTION_UP = 1;
@@ -18,7 +18,9 @@ public class KeyEvent  {
     public static final int FLAG_SOFT_KEYBOARD = 2;
     public static final int FLAG_TRACKING = 512;
     public static final int FLAG_VIRTUAL_HARD_KEY = 64;
-    /** @deprecated */
+    /**
+     * @deprecated
+     */
     @Deprecated
     public static final int FLAG_WOKE_HERE = 1;
     public static final int KEYCODE_0 = 7;
@@ -281,7 +283,9 @@ public class KeyEvent  {
     public static final int KEYCODE_ZENKAKU_HANKAKU = 211;
     public static final int KEYCODE_ZOOM_IN = 168;
     public static final int KEYCODE_ZOOM_OUT = 169;
-    /** @deprecated */
+    /**
+     * @deprecated
+     */
     @Deprecated
     public static final int MAX_KEYCODE = 84;
     public static final int META_ALT_LEFT_ON = 16;

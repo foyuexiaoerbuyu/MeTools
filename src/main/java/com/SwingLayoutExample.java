@@ -36,7 +36,7 @@ public class SwingLayoutExample extends JFrame {
         c.gridy = 0;
         topPanel.add(searchField, c);
 
-        String[] categories = { "Category 1", "Category 2", "Category 3" };
+        String[] categories = {"Category 1", "Category 2", "Category 3"};
         categoryComboBox = new JComboBox<String>(categories);
         c.weightx = 0.0;
         c.gridx = 1;
@@ -131,6 +131,16 @@ public class SwingLayoutExample extends JFrame {
         setContentPane(mainPanel);
     }
 
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                SwingLayoutExample example = new SwingLayoutExample();
+                example.setVisible(true);
+            }
+        });
+    }
+
     private void addButton(String label) {
         JButton button = new JButton(label);
         button.addActionListener(new ActionListener() {
@@ -181,16 +191,6 @@ public class SwingLayoutExample extends JFrame {
                 } else {
                     System.out.println("Checkbox deselected");
                 }
-            }
-        });
-    }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                SwingLayoutExample example = new SwingLayoutExample();
-                example.setVisible(true);
             }
         });
     }

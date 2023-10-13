@@ -1,8 +1,6 @@
 package com;
 
 
-
-
 import org.yifan.hao.swing.JswCustomWight;
 import org.yifan.hao.swing.JswOnLongClickListener;
 

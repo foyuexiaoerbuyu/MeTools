@@ -5,7 +5,6 @@ import com.panel.custom.EditText;
 import com.panel.custom.GridLayout;
 import com.panel.custom.TextView;
 import com.panel.custom.WindowAlert;
-
 import com.zhihu.ZhihuUtils;
 import com.zhihu.ZhihuUtils.SaveCallback;
 import com.zhihu.other.CommUtils;
@@ -54,9 +53,9 @@ public class PanelDownload extends Application {
                 return;
             }
             ZhihuUtils.saveArticle(seltPath.getText(), articleEdt.getText(),
-                (saveName, saveSuccess) -> {
-                    WindowAlert.display("提示", saveName);
-                });
+                    (saveName, saveSuccess) -> {
+                        WindowAlert.display("提示", saveName);
+                    });
         });
 
         EditText collectionEdt = new EditText("请输入收藏链接Id");
@@ -77,7 +76,7 @@ public class PanelDownload extends Application {
         });
         GridLayout gridLayout = new GridLayout(3, 2);
         gridLayout
-            .addView(seltPath, seltPathBtn, articleEdt, articleBtn, collectionEdt, collectionBtn);
+                .addView(seltPath, seltPathBtn, articleEdt, articleBtn, collectionEdt, collectionBtn);
         stage.setScene(new Scene(gridLayout)); // 把水平箱子放到边界窗格的中央
         stage.show();
     }

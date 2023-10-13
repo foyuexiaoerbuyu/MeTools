@@ -2,9 +2,8 @@ package com.chat2;
 
 import com.chat1.ChatMsg;
 import com.other.Constant;
-import org.yifan.hao.GsonUtils;
 import org.yifan.hao.FileUtils;
-
+import org.yifan.hao.GsonUtils;
 
 import java.io.*;
 import java.net.ServerSocket;
@@ -17,10 +16,10 @@ import java.util.Arrays;
 
 public class SocketUtils {
 
+    private static final int BUFFER_SIZE = 1024 * 1024; // 1 MB
     private final IServiceNotifyMsg iServiceNotifyMsg;
     private ServerSocket serverSocket;
     private Socket mClientSocket;
-
     private Socket mServiceSocket;
 
     public SocketUtils(IServiceNotifyMsg iServiceNotifyMsg) {
@@ -164,25 +163,10 @@ public class SocketUtils {
         }
     }
 
-    public interface IReceiverMsg {
-        void receiverMsg(String receiveMsg);
-
-        default void progress(int progress) {
-
-        }
-    }
-
-    @FunctionalInterface
-    public interface IServiceNotifyMsg {
-        void errMsg(Exception e, String errMsg);
-    }
-//-----------------------------------------------------------------------------------------
-
-    private static final int BUFFER_SIZE = 1024 * 1024; // 1 MB
-
     public void sendMsgToClient(String msg) {
         sendMsgToClientPrimitive(new ChatMsg(msg).toJson());
     }
+//-----------------------------------------------------------------------------------------
 
     public void sendMsgToService(String msg) {
         sendMsgToServicePrimitive(new ChatMsg(msg).toJson());
@@ -228,5 +212,18 @@ public class SocketUtils {
             sendMsgToService("接收文件异常: " + e.getMessage());
             System.err.println("Error sending file: " + e.getMessage());
         }
+    }
+
+    public interface IReceiverMsg {
+        void receiverMsg(String receiveMsg);
+
+        default void progress(int progress) {
+
+        }
+    }
+
+    @FunctionalInterface
+    public interface IServiceNotifyMsg {
+        void errMsg(Exception e, String errMsg);
     }
 }

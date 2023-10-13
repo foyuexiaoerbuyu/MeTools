@@ -2,10 +2,10 @@ package com.panel;
 
 import com.chat1.ChatWebSocketService;
 import com.chat1.IChatServiceCallBack;
-import org.yifan.hao.swing.JswDialogUtils;
 import com.other.QRCodeGenerator;
 import org.yifan.hao.WinUtils;
 import org.yifan.hao.swing.JswCustomWight;
+import org.yifan.hao.swing.JswDialogUtils;
 import org.yifan.hao.swing.JswOnLongClickListener;
 
 import javax.swing.*;
@@ -16,15 +16,14 @@ import java.io.File;
 
 public class TabTest implements IChatServiceCallBack {
 
+    int hang1Y = 10, hang2Y = 45, hang3Y = 80, hang4Y = 115, hang5Y = 150, hang6Y = 185, hang7Y = 215;
+    int lie1X = 10;
     private ChatWebSocketService chatWebSocket;
     private JLabel jLabel;
-
     /* 行高 */
     private int btnHeight = 30;
     /*行间距*/
     private int hSpace = 40;
-    int hang1Y = 10, hang2Y = 45, hang3Y = 80, hang4Y = 115, hang5Y = 150, hang6Y = 185, hang7Y = 215;
-    int lie1X = 10;
 
     /**
      * @param mainFrame 350*270

@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 
 
 public class SceneChange extends Application {
-    Scene scene1,  scene2;
+    Scene scene1, scene2;
 
     public static void main(String[] args) {
         launch(args);

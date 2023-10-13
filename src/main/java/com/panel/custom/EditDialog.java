@@ -13,11 +13,6 @@ import java.awt.event.WindowEvent;
 public class EditDialog extends JDialog {
     private ICallBack iCallBack;
 
-    public interface ICallBack {
-
-        void str(String title, String content);
-    }
-
     public EditDialog(JFrame parent, String text, ICallBack iCallBack) {
         this.iCallBack = iCallBack;
         new EditDialog(parent, text);
@@ -114,5 +109,10 @@ public class EditDialog extends JDialog {
 
         frame.getContentPane().add(button, BorderLayout.CENTER);
         frame.setVisible(true);
+    }
+
+    public interface ICallBack {
+
+        void str(String title, String content);
     }
 }

@@ -276,6 +276,20 @@ public class CollectionEnt {
                 this.title = title;
             }
 
+            @Override
+            public String toString() {
+                return "ContentBean{" +
+                        "id=" + id +
+                        ", type='" + type + '\'' +
+                        ", url='" + url + '\'' +
+                        ", question=" + question +
+                        ", author=" + author +
+                        ", content='" + content + '\'' +
+                        ", excerpt='" + excerpt + '\'' +
+                        ", title='" + title + '\'' +
+                        '}';
+            }
+
             public static class QuestionBean {
 
                 /**
@@ -350,14 +364,14 @@ public class CollectionEnt {
                 @Override
                 public String toString() {
                     return "QuestionBean{" +
-                        "type='" + type + '\'' +
-                        ", id=" + id +
-                        ", title='" + title + '\'' +
-                        ", question_type='" + question_type + '\'' +
-                        ", created=" + created +
-                        ", updated_time=" + updated_time +
-                        ", url='" + url + '\'' +
-                        '}';
+                            "type='" + type + '\'' +
+                            ", id=" + id +
+                            ", title='" + title + '\'' +
+                            ", question_type='" + question_type + '\'' +
+                            ", created=" + created +
+                            ", updated_time=" + updated_time +
+                            ", url='" + url + '\'' +
+                            '}';
                 }
             }
 
@@ -428,28 +442,14 @@ public class CollectionEnt {
                 @Override
                 public String toString() {
                     return "AuthorBean{" +
-                        "id='" + id + '\'' +
-                        ", name='" + name + '\'' +
-                        ", avatar_url='" + avatar_url + '\'' +
-                        ", avatar_url_template='" + avatar_url_template + '\'' +
-                        ", type='" + type + '\'' +
-                        ", url='" + url + '\'' +
-                        '}';
+                            "id='" + id + '\'' +
+                            ", name='" + name + '\'' +
+                            ", avatar_url='" + avatar_url + '\'' +
+                            ", avatar_url_template='" + avatar_url_template + '\'' +
+                            ", type='" + type + '\'' +
+                            ", url='" + url + '\'' +
+                            '}';
                 }
-            }
-
-            @Override
-            public String toString() {
-                return "ContentBean{" +
-                    "id=" + id +
-                    ", type='" + type + '\'' +
-                    ", url='" + url + '\'' +
-                    ", question=" + question +
-                    ", author=" + author +
-                    ", content='" + content + '\'' +
-                    ", excerpt='" + excerpt + '\'' +
-                    ", title='" + title + '\'' +
-                    '}';
             }
         }
     }

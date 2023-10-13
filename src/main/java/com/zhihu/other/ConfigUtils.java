@@ -1,8 +1,8 @@
 package com.zhihu.other;
 
 import com.other.Constant;
-import org.yifan.hao.GsonUtils;
 import org.yifan.hao.FileUtils;
+import org.yifan.hao.GsonUtils;
 
 
 public class ConfigUtils {

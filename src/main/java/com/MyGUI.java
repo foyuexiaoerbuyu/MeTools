@@ -19,7 +19,7 @@ public class MyGUI extends JFrame {
         /* 第一行：输入框、分类下拉框和搜索按钮 */
         JPanel topPanel = new JPanel(new BorderLayout());
         JTextField textField = new JTextField();
-        JComboBox<String> comboBox = new JComboBox<>(new String[] {"Option 1", "Option 2", "Option 3"});
+        JComboBox<String> comboBox = new JComboBox<>(new String[]{"Option 1", "Option 2", "Option 3"});
         JButton searchButton = new JButton("Search");
         topPanel.add(textField, BorderLayout.CENTER);
         topPanel.add(comboBox, BorderLayout.WEST);
@@ -97,21 +97,24 @@ public class MyGUI extends JFrame {
             public void changedUpdate(DocumentEvent e) {
                 update();
             }
+
             public void removeUpdate(DocumentEvent e) {
                 update();
             }
+
             public void insertUpdate(DocumentEvent e) {
                 update();
             }
+
             public void update() {
                 System.out.println(textField.getText());
             }
         });
 
         /* 设置内边距和窗口大小并显示 */
-        topPanel.setBorder(BorderFactory.createEmptyBorder(12,12,12,12));
-        middlePanel.setBorder(BorderFactory.createEmptyBorder(12,12,12,12));
-        scrollPane.setBorder(BorderFactory.createEmptyBorder(12,12,12,12));
+        topPanel.setBorder(BorderFactory.createEmptyBorder(12, 12, 12, 12));
+        middlePanel.setBorder(BorderFactory.createEmptyBorder(12, 12, 12, 12));
+        scrollPane.setBorder(BorderFactory.createEmptyBorder(12, 12, 12, 12));
         pack();
         setLocationRelativeTo(null);
         setVisible(true);

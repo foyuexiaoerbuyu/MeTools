@@ -2,9 +2,6 @@ package com.zhihu.other;
 
 import com.alibaba.fastjson.JSONObject;
 import com.other.Constant;
-
-
-
 import org.apache.commons.lang3.StringUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;

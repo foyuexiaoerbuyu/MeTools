@@ -1,18 +1,12 @@
 package com.panel.tab;
 
 import com.other.Constant;
-import org.yifan.hao.swing.JswDialogUtils;
-
-
-
-
-
-
 import com.zhihu.other.CommUtils;
 import org.yifan.hao.FileUtils;
 import org.yifan.hao.StringUtil;
 import org.yifan.hao.WinUtils;
 import org.yifan.hao.swing.JswCustomWight;
+import org.yifan.hao.swing.JswDialogUtils;
 import org.yifan.hao.swing.JswOnLongClickListener;
 import org.yifan.hao.swing.JswPopupMenus;
 

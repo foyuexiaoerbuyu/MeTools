@@ -7,7 +7,6 @@ import com.google.zxing.qrcode.QRCodeWriter;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 import org.yifan.hao.WinUtils;
 
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
