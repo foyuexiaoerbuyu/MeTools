@@ -1,0 +1,46 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="MeTools:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/MeTools_jar</output-path>
+    <root id="archive" name="MeTools.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="MeTools" />
+      <element id="module-output" name="TTools" />
+      <element id="extracted-dir" path="H:/Maven/repo/org/openjfx/javafx-graphics/17.0.1/javafx-graphics-17.0.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="H:/Maven/repo/org/mi/utils/MiUtils/0.1/MiUtils-0.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="H:/Maven/repo/com/squareup/okhttp3/okhttp/3.14.9/okhttp-3.14.9.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="H:/Maven/repo/org/rocksdb/rocksdbjni/5.14.2/rocksdbjni-5.14.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="H:/Maven/repo/com/googlecode/juniversalchardet/juniversalchardet/1.0.3/juniversalchardet-1.0.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="H:/Maven/repo/com/kotcrab/remark/remark/1.0.0/remark-1.0.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="H:/Maven/repo/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="H:/Maven/repo/com/github/kwhat/jnativehook/2.2.2/jnativehook-2.2.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="H:/Maven/repo/org/openjfx/javafx-controls/17.0.1/javafx-controls-17.0.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="H:/Maven/repo/cn/hutool/hutool-all/5.3.0/hutool-all-5.3.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="H:/Maven/repo/org/openjfx/javafx-fxml/17.0.1/javafx-fxml-17.0.1-win.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="H:/Maven/repo/org/apache/commons/commons-lang3/3.10/commons-lang3-3.10.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="H:/Maven/repo/com/google/zxing/core/3.4.0/core-3.4.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="H:/Maven/repo/com/squareup/okio/okio/1.17.2/okio-1.17.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="H:/Maven/repo/org/openjfx/javafx-graphics/17.0.1/javafx-graphics-17.0.1-win.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="H:/Maven/repo/com/github/jai-imageio/jai-imageio-core/1.3.1/jai-imageio-core-1.3.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="H:/Maven/repo/cn/edu/hfut/dmic/webcollector/WebCollector/2.73-alpha/WebCollector-2.73-alpha.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="H:/Maven/repo/org/openjfx/javafx-controls/17.0.1/javafx-controls-17.0.1-win.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="H:/Maven/repo/com/alibaba/fastjson/1.2.73/fastjson-1.2.73.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="H:/Maven/repo/log4j/log4j/1.2.17/log4j-1.2.17.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="H:/Maven/repo/org/jsoup/jsoup/1.11.3/jsoup-1.11.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/main/java/libs/jnativehook-2.2.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/main/java/libs/okhttputils-2_6_2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="H:/Maven/repo/org/openjfx/javafx-fxml/17.0.1/javafx-fxml-17.0.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="H:/Maven/repo/org/slf4j/slf4j-log4j12/1.7.25/slf4j-log4j12-1.7.25.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="H:/Maven/repo/com/google/zxing/javase/3.3.0/javase-3.3.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="H:/Maven/repo/com/beust/jcommander/1.48/jcommander-1.48.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="H:/Maven/repo/org/java-websocket/Java-WebSocket/1.5.3/Java-WebSocket-1.5.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="H:/Maven/repo/com/sleepycat/je/5.0.73/je-5.0.73.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="H:/Maven/repo/org/openjfx/javafx-base/17.0.1/javafx-base-17.0.1-win.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="H:/Maven/repo/com/google/code/gson/gson/2.8.6/gson-2.8.6.jar" path-in-jar="/" />
+      <element id="library" level="project" name="java" />
+      <element id="extracted-dir" path="H:/Maven/repo/org/openjfx/javafx-base/17.0.1/javafx-base-17.0.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="H:/Maven/repo/commons-io/commons-io/2.4/commons-io-2.4.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
