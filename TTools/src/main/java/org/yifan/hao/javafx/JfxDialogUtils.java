@@ -1,5 +1,6 @@
 package org.yifan.hao.javafx;
 
+import com.google.zxing.qrcode.encoder.QRCode;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -13,8 +14,6 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.Window;
-import net.glxn.qrgen.core.image.ImageType;
-import net.glxn.qrgen.javase.QRCode;
 
 import java.io.ByteArrayInputStream;
 import java.util.Timer;
@@ -195,9 +194,10 @@ public class JfxDialogUtils {
     }
 
     private static Image generateQRCodeImage(String text) {
-        // 使用qrgen库生成二维码
-        byte[] qrCodeBytes = QRCode.from(text).to(ImageType.PNG).stream().toByteArray();
-        return new Image(new ByteArrayInputStream(qrCodeBytes));
+//        // 使用qrgen库生成二维码
+//        byte[] qrCodeBytes = QRCode.from(text).to(ImageType.PNG).stream().toByteArray();
+//        return new Image(new ByteArrayInputStream(qrCodeBytes));
+        return null;
     }
 
 
