@@ -30,12 +30,12 @@
     </repositories>
     <dependencies>
         <!--本地依赖:发布时需要注释否则会循环依赖-->
-        <dependency>
+        <!--<dependency>
             <groupId>org.yifan.hao</groupId>
             <artifactId>TTools</artifactId>
             <version>1.0-SNAPSHOT</version>
             <scope>compile</scope>
-        </dependency>
+        </dependency>-->
 
         <!--远端依赖-->
         <!--<dependency>
