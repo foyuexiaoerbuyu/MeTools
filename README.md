@@ -48,3 +48,6 @@ Step 2. Add the dependency
 	        implementation 'com.github.foyuexiaoerbuyu:MeTools:0.07'
 	}
 Share this release:
+
+
+目前只有0.07能用
