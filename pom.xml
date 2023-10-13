@@ -20,7 +20,7 @@
         </plugins>
     </build>
     <modules>
-<!--        <module>TTools</module>-->
+        <!--        <module>TTools</module>-->
     </modules>
     <dependencies>
         <!--发布时需要注释否则会循环依赖-->
@@ -31,12 +31,12 @@
             <scope>compile</scope>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>org.mi.utils</groupId>-->
-<!--            <artifactId>MiUtils</artifactId>-->
-<!--            <version>0.1</version>-->
-<!--            <scope>compile</scope>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.mi.utils</groupId>-->
+        <!--            <artifactId>MiUtils</artifactId>-->
+        <!--            <version>0.1</version>-->
+        <!--            <scope>compile</scope>-->
+        <!--        </dependency>-->
 
         <!--后台监听按键 代替libs里的jnativehook-2.2.2.jar-->
         <!-- https://mvnrepository.com/artifact/com.github.kwhat/jnativehook -->

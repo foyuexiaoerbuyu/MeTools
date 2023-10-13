@@ -1,6 +1,8 @@
-# MeTools
+# MeTools   java工具类
 
-java工具类
+这个版本不在更新,项目开源到github了
+https://github.com/foyuexiaoerbuyu/MeTools/tree/master
+对应的是0.07版本
 
 https://jitpack.io/#foyuexiaoerbuyu/MeTools
 https://github.com/foyuexiaoerbuyu/MeTools
