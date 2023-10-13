@@ -2,6 +2,9 @@
 
 java工具类
 
+[![](https://jitpack.io/v/foyuexiaoerbuyu/MeTools.svg)](https://jitpack.io/#foyuexiaoerbuyu/MeTools)
+
+
 https://jitpack.io/#foyuexiaoerbuyu/MeTools
 https://github.com/foyuexiaoerbuyu/MeTools
 
