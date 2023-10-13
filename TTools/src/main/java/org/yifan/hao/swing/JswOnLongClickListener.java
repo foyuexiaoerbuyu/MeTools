@@ -18,15 +18,14 @@ public abstract class JswOnLongClickListener extends MouseAdapter {
 
     private int count = 0;
     private String btnText;
+    private Timer timer;
+    private boolean longClick;
 
     public void onLongClick() {
 
     }
 
     public abstract void onClick();
-
-    private Timer timer;
-    private boolean longClick;
 
     /**
      * 鼠标按下事件发生时调用的方法。当用户按下鼠标按钮时触发，可以通过MouseEvent对象获取有关鼠标按下的信息。

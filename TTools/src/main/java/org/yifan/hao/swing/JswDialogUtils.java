@@ -10,35 +10,6 @@ import java.util.TimerTask;
 
 public class JswDialogUtils {
 
-    public interface IDialogClick {
-        void okBtnClick();
-
-        default void cancelBtnClick() {
-        }
-
-        default void canceListen() {
-        }
-    }
-
-    public interface IImageDialog {
-        default void print() {
-        }
-
-        default void close() {
-        }
-
-        void clickImg();
-    }
-
-    public interface IConfirmDialogCallBack {
-        void callBack(boolean isOk);
-    }
-
-    public interface IClick {
-        void callBack(int index, String btnName);
-    }
-
-
     public static String showEditDialogSimple(String title, String message, String defaultValue) {
         return JOptionPane.showInputDialog(null, message, title, JOptionPane.PLAIN_MESSAGE, null, null, defaultValue).toString();
 //        return JOptionPane.showInputDialog(null, message, title, JOptionPane.PLAIN_MESSAGE);
@@ -219,7 +190,6 @@ public class JswDialogUtils {
         JOptionPane.showMessageDialog(parent, msg, "提示", JOptionPane.WARNING_MESSAGE);
     }
 
-
     // 显示图片弹框
     public static void showImageDialog(JFrame frame, String path, IImageDialog iImageDialog) {
         // 创建一个面板用于承载图片和按钮
@@ -338,15 +308,6 @@ public class JswDialogUtils {
         dialog.setVisible(true);
     }
 
-
-    public interface ICallBack {
-        void str(String title, String content);
-    }
-
-    public interface ISimpleCallBack {
-        void str(String content);
-    }
-
     public static void showCheckboxDialog(Component parent, String title, String message, String[] checkboxLabels) {
         JCheckBox[] checkboxes = new JCheckBox[checkboxLabels.length];
 
@@ -445,5 +406,42 @@ public class JswDialogUtils {
             // 执行其他操作或关闭应用程序
         }
         iConfirmDialogCallBack.callBack(choice == JOptionPane.YES_OPTION);
+    }
+
+
+    public interface IDialogClick {
+        void okBtnClick();
+
+        default void cancelBtnClick() {
+        }
+
+        default void canceListen() {
+        }
+    }
+
+    public interface IImageDialog {
+        default void print() {
+        }
+
+        default void close() {
+        }
+
+        void clickImg();
+    }
+
+    public interface IConfirmDialogCallBack {
+        void callBack(boolean isOk);
+    }
+
+    public interface IClick {
+        void callBack(int index, String btnName);
+    }
+
+    public interface ICallBack {
+        void str(String title, String content);
+    }
+
+    public interface ISimpleCallBack {
+        void str(String content);
     }
 }

@@ -15,53 +15,6 @@ public class JswCustomWight {
 
 
     /**
-     * 拖拽回调
-     */
-    public interface IDragCallBack {
-        void dragCallBack(String path);
-    }
-
-
-    public interface IJTextFieldListener {
-        /*获取焦点*/
-        void focusGained(JTextField jTextField);
-
-        /*失去焦点*/
-        void focusLost(JTextField jTextField);
-
-        void actionPerformed(ActionEvent e, JTextField jTextField);
-    }
-
-    public interface IJComboBoxListener {
-
-        default void enter(KeyEvent keyEvent, JComboBox<String> jComboBox, Object selectedItem) {
-
-        }
-
-        //编辑框失去焦点
-        default void focusLost(FocusEvent focusEvent, JComboBox<String> jComboBox) {
-        }
-
-        /*编辑框获得焦点*/
-        default void focusGained(FocusEvent focusEvent, JComboBox<String> jComboBox) {
-        }
-
-        //编辑框被点击
-        default void mouseClicked(MouseEvent mouseEvent, JComboBox<String> jComboBox) {
-        }
-
-        /**
-         * 点击item
-         *
-         * @param actionEvent
-         * @param jComboBox
-         * @param index        获取到选中项的索引
-         * @param selectedItem
-         */
-        default void itemClick(ActionEvent actionEvent, JComboBox<String> jComboBox, int index, String selectedItem) {
-        }
-    }
-    /**
      * 编辑框
      */
     public static JTextField getJTextField(int x, int y, int w, int h) {
@@ -248,7 +201,6 @@ public class JswCustomWight {
         return jTextArea;
     }
 
-
     /**
      * 编辑框添加拖拽回调
      */
@@ -316,7 +268,6 @@ public class JswCustomWight {
         return jTextField;
     }
 
-
     /**
      * 文本
      */
@@ -357,7 +308,6 @@ public class JswCustomWight {
         label.addMouseListener(onLongClickListener);
         return label;
     }
-
 
     /**
      * 按钮
@@ -566,5 +516,52 @@ public class JswCustomWight {
 //            System.out.println("勾选状态: " + source.isSelected());
 //        });
         return checkBox;
+    }
+
+    /**
+     * 拖拽回调
+     */
+    public interface IDragCallBack {
+        void dragCallBack(String path);
+    }
+
+    public interface IJTextFieldListener {
+        /*获取焦点*/
+        void focusGained(JTextField jTextField);
+
+        /*失去焦点*/
+        void focusLost(JTextField jTextField);
+
+        void actionPerformed(ActionEvent e, JTextField jTextField);
+    }
+
+    public interface IJComboBoxListener {
+
+        default void enter(KeyEvent keyEvent, JComboBox<String> jComboBox, Object selectedItem) {
+
+        }
+
+        //编辑框失去焦点
+        default void focusLost(FocusEvent focusEvent, JComboBox<String> jComboBox) {
+        }
+
+        /*编辑框获得焦点*/
+        default void focusGained(FocusEvent focusEvent, JComboBox<String> jComboBox) {
+        }
+
+        //编辑框被点击
+        default void mouseClicked(MouseEvent mouseEvent, JComboBox<String> jComboBox) {
+        }
+
+        /**
+         * 点击item
+         *
+         * @param actionEvent
+         * @param jComboBox
+         * @param index        获取到选中项的索引
+         * @param selectedItem
+         */
+        default void itemClick(ActionEvent actionEvent, JComboBox<String> jComboBox, int index, String selectedItem) {
+        }
     }
 }

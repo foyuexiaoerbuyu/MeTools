@@ -21,46 +21,11 @@ import java.util.concurrent.atomic.AtomicBoolean;
  */
 public class JfxCustomWight {
     /**
-     * 自定义控件
-     */
-    public interface IClickCallBack {
-
-        void onClick(Button btn);
-
-        default void onLongClick() {
-
-        }
-    }
-
-    /**
-     * 自定义控件
-     */
-    public interface ITextFieldCallBack {
-
-        void onClickEnter(TextField textField, String text, boolean isFile);
-
-        /**
-         * @param isFile 是否为拖拽的文件/也有可能是文件夹
-         */
-        default void onClickCtrlEnter(TextField textField, String text, boolean isFile) {
-
-        }
-
-        /**
-         * @param files 拖拽文件
-         */
-        default void onDragFiles(List<File> files) {
-
-        }
-    }
-
-    /**
      * @param iTextFieldCallBack 拖拽及回车
      */
     public static TextField getTextField(int w, int h, ITextFieldCallBack iTextFieldCallBack) {
         return getTextField(w, h, false, iTextFieldCallBack);
     }
-
 
     /**
      * @param isDrag 启用拖拽
@@ -218,6 +183,50 @@ public class JfxCustomWight {
         return clearItem1;
     }
 
+    /**
+     * 是否为盘符开头
+     */
+    public static boolean startsWithWindowsDrive(String str) {
+        if (str == null) return false;
+        // 使用正则表达式判断字符串是否以 Windows 盘符开头
+        return str.trim().matches("^[A-Za-z]:\\\\.*");
+    }
+
+    /**
+     * 自定义控件
+     */
+    public interface IClickCallBack {
+
+        void onClick(Button btn);
+
+        default void onLongClick() {
+
+        }
+    }
+
+    /**
+     * 自定义控件
+     */
+    public interface ITextFieldCallBack {
+
+        void onClickEnter(TextField textField, String text, boolean isFile);
+
+        /**
+         * @param isFile 是否为拖拽的文件/也有可能是文件夹
+         */
+        default void onClickCtrlEnter(TextField textField, String text, boolean isFile) {
+
+        }
+
+        /**
+         * @param files 拖拽文件
+         */
+        default void onDragFiles(List<File> files) {
+
+        }
+    }
+
+
     public interface IClick {
         /**
          * @param obj  对象
@@ -230,7 +239,6 @@ public class JfxCustomWight {
         }
     }
 
-
     public interface ITextAreaCallBack {
 
         default void ctrlEnter(TextArea textArea) {
@@ -240,15 +248,6 @@ public class JfxCustomWight {
         default void enter(TextArea textArea) {
 
         }
-    }
-
-    /**
-     * 是否为盘符开头
-     */
-    public static boolean startsWithWindowsDrive(String str) {
-        if (str == null) return false;
-        // 使用正则表达式判断字符串是否以 Windows 盘符开头
-        return str.trim().matches("^[A-Za-z]:\\\\.*");
     }
 
 }

@@ -1239,38 +1239,6 @@ public class FileUtils {
     }
 
     /**
-     * 方法二:按行获取指定内容(至末尾)
-     *
-     * @param startLine 起始行
-     * @return 指定内容内容
-     * @throws Exception .
-     */
-    public String getSpecifyContent2(String filePath, int startLine) throws Exception {
-        StringBuilder sb = new StringBuilder();
-        LineNumberReader lnr = new LineNumberReader(new FileReader(filePath));
-        String buff = lnr.readLine();
-        while (buff != null) {
-            if (lnr.getLineNumber() >= startLine) {
-                sb.append(buff);
-                sb.append("\r\n");
-            }
-            buff = lnr.readLine();
-        }
-        return sb.toString();
-    }
-
-    public interface ReadFileNames {
-
-        void onReadLine(String linStr, File file);
-    }
-
-    public interface ReadLines {
-
-        void onReadLine(String linStr);
-    }
-
-
-    /**
      * 移动文件到指定文件夹
      * 如果目标文件夹不存在，程序将自动创建它。如果目标文件夹中已经存在同名文件，程序将覆盖它。
      *
@@ -1296,25 +1264,6 @@ public class FileUtils {
             System.err.println("移动文件时发生错误");
         }
     }
-
-//try {
-//            String srcDirPath = "L:\\Users\\19500\\Downloads\\test";
-//            // 转为UTF-8编码格式源码路径
-//            String utf8DirPath = "L:\\Users\\19500\\Downloads\\test1";
-//            // 获取所有java文件
-//            Collection<File> javaGbkFileCol = FileUtils.listFiles(new File(srcDirPath), new String[]{"java"}, true);
-//
-//            for (File javaGbkFile : javaGbkFileCol) {
-//                System.out.println(javaGbkFile);
-//                // UTF8格式文件路径
-//                String utf8FilePath = utf8DirPath + javaGbkFile.getAbsolutePath().substring(srcDirPath.length());
-//                // 使用GBK读取数据，然后用UTF-8写入数据
-//                FileUtils.writeLines(new File(utf8FilePath), "GBK", FileUtils.readLines(javaGbkFile, "UTF-8"));
-//            }
-//            com.utils.FileUtils.openDir("path");
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
 
     public static void readFileBit(String filePath, IFileReadCallBack iCaliFileReadCallBackBack) {
         FileInputStream fis = null;
@@ -1358,14 +1307,6 @@ public class FileUtils {
     }
 
     /**
-     * 通用回调方法
-     */
-    public interface IFileReadCallBack {
-
-        void read(byte[] buffer);
-    }
-
-    /**
      * windows下文件名中不能含有：\ / : * ? " < > | 英文的这些字符 ，这里使用"."、"'"进行替换。
      * 解决:保存文件文件名不正确问题
      * 解决:文件名、目录名或卷标语法不正确。
@@ -1395,6 +1336,64 @@ public class FileUtils {
         dirPath = dirPath.replaceAll("[/\\\\:*?|]", " ");
         dirPath = dirPath.replaceAll("[\"<>]", " ");
         return dirPath;
+    }
+
+//try {
+//            String srcDirPath = "L:\\Users\\19500\\Downloads\\test";
+//            // 转为UTF-8编码格式源码路径
+//            String utf8DirPath = "L:\\Users\\19500\\Downloads\\test1";
+//            // 获取所有java文件
+//            Collection<File> javaGbkFileCol = FileUtils.listFiles(new File(srcDirPath), new String[]{"java"}, true);
+//
+//            for (File javaGbkFile : javaGbkFileCol) {
+//                System.out.println(javaGbkFile);
+//                // UTF8格式文件路径
+//                String utf8FilePath = utf8DirPath + javaGbkFile.getAbsolutePath().substring(srcDirPath.length());
+//                // 使用GBK读取数据，然后用UTF-8写入数据
+//                FileUtils.writeLines(new File(utf8FilePath), "GBK", FileUtils.readLines(javaGbkFile, "UTF-8"));
+//            }
+//            com.utils.FileUtils.openDir("path");
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+
+    /**
+     * 方法二:按行获取指定内容(至末尾)
+     *
+     * @param startLine 起始行
+     * @return 指定内容内容
+     * @throws Exception .
+     */
+    public String getSpecifyContent2(String filePath, int startLine) throws Exception {
+        StringBuilder sb = new StringBuilder();
+        LineNumberReader lnr = new LineNumberReader(new FileReader(filePath));
+        String buff = lnr.readLine();
+        while (buff != null) {
+            if (lnr.getLineNumber() >= startLine) {
+                sb.append(buff);
+                sb.append("\r\n");
+            }
+            buff = lnr.readLine();
+        }
+        return sb.toString();
+    }
+
+    public interface ReadFileNames {
+
+        void onReadLine(String linStr, File file);
+    }
+
+    public interface ReadLines {
+
+        void onReadLine(String linStr);
+    }
+
+    /**
+     * 通用回调方法
+     */
+    public interface IFileReadCallBack {
+
+        void read(byte[] buffer);
     }
 
 }

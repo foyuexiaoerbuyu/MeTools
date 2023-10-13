@@ -21,6 +21,8 @@ import java.util.*;
 
 public class WinUtils {
 
+    private static Point mousePosition;
+
     /**
      * 1. 从剪切板获得文字。
      */
@@ -238,7 +240,6 @@ public class WinUtils {
         return localHost.getHostAddress();
     }
 
-
     /**
      * 查看本机某端口是否被占用
      *
@@ -335,31 +336,6 @@ public class WinUtils {
      */
     public static Point getMouseCurPos() {
         return MouseInfo.getPointerInfo().getLocation();
-    }
-
-    /**
-     * 5.通过流获取，可读取图文混合
-     */
-    public void getImageAndTextFromClipboard() throws Exception {
-        Clipboard sysClip = Toolkit.getDefaultToolkit().getSystemClipboard();
-        Transferable clipTf = sysClip.getContents(null);
-        DataFlavor[] dataList = clipTf.getTransferDataFlavors();
-        int wholeLength = 0;
-        for (int i = 0; i < dataList.length; i++) {
-            DataFlavor data = dataList[i];
-            if (data.getSubType().equals("rtf")) {
-                Reader reader = data.getReaderForText(clipTf);
-                OutputStreamWriter osw = new OutputStreamWriter(
-                        new FileOutputStream("d:\\test.rtf"));
-                char[] c = new char[1024];
-                int leng = -1;
-                while ((leng = reader.read(c)) != -1) {
-                    osw.write(c, wholeLength, leng);
-                }
-                osw.flush();
-                osw.close();
-            }
-        }
     }
 
     /**
@@ -525,33 +501,6 @@ public class WinUtils {
         clipboard.setContents(fileTransferable, null);
     }
 
-    static class FileTransferable implements Transferable {
-        private List files;
-
-        public FileTransferable(List files) {
-            this.files = files;
-        }
-
-        @Override
-        public DataFlavor[] getTransferDataFlavors() {
-            return new DataFlavor[]{DataFlavor.javaFileListFlavor};
-        }
-
-        @Override
-        public boolean isDataFlavorSupported(DataFlavor flavor) {
-            return flavor.equals(DataFlavor.javaFileListFlavor);
-        }
-
-        @Override
-        public Object getTransferData(DataFlavor flavor) throws UnsupportedFlavorException, IOException {
-            if (!isDataFlavorSupported(flavor)) {
-                throw new UnsupportedFlavorException(flavor);
-            }
-            return files;
-        }
-    }
-
-
     /**
      * 把文本设置到剪贴板（复制）
      */
@@ -580,19 +529,6 @@ public class WinUtils {
             return;
         }
         iReadLin.end();
-    }
-
-
-    public interface IReadLin {
-        void readLin(String filePath);
-
-        default void onException(Exception exception) {
-
-        }
-
-        default void end() {
-
-        }
     }
 
     /**
@@ -734,9 +670,6 @@ public class WinUtils {
         r.mouseMove(screenCenterPos[0], screenCenterPos[1]);
     }
 
-
-    private static Point mousePosition;
-
     /**
      * @throws AWTException 显示鼠标位置
      */
@@ -848,6 +781,69 @@ public class WinUtils {
         if (str == null) return false;
         // 使用正则表达式判断字符串是否以 Windows 盘符开头
         return str.trim().matches("^[A-Za-z]:\\\\.*");
+    }
+
+    /**
+     * 5.通过流获取，可读取图文混合
+     */
+    public void getImageAndTextFromClipboard() throws Exception {
+        Clipboard sysClip = Toolkit.getDefaultToolkit().getSystemClipboard();
+        Transferable clipTf = sysClip.getContents(null);
+        DataFlavor[] dataList = clipTf.getTransferDataFlavors();
+        int wholeLength = 0;
+        for (int i = 0; i < dataList.length; i++) {
+            DataFlavor data = dataList[i];
+            if (data.getSubType().equals("rtf")) {
+                Reader reader = data.getReaderForText(clipTf);
+                OutputStreamWriter osw = new OutputStreamWriter(
+                        new FileOutputStream("d:\\test.rtf"));
+                char[] c = new char[1024];
+                int leng = -1;
+                while ((leng = reader.read(c)) != -1) {
+                    osw.write(c, wholeLength, leng);
+                }
+                osw.flush();
+                osw.close();
+            }
+        }
+    }
+
+    public interface IReadLin {
+        void readLin(String filePath);
+
+        default void onException(Exception exception) {
+
+        }
+
+        default void end() {
+
+        }
+    }
+
+    static class FileTransferable implements Transferable {
+        private List files;
+
+        public FileTransferable(List files) {
+            this.files = files;
+        }
+
+        @Override
+        public DataFlavor[] getTransferDataFlavors() {
+            return new DataFlavor[]{DataFlavor.javaFileListFlavor};
+        }
+
+        @Override
+        public boolean isDataFlavorSupported(DataFlavor flavor) {
+            return flavor.equals(DataFlavor.javaFileListFlavor);
+        }
+
+        @Override
+        public Object getTransferData(DataFlavor flavor) throws UnsupportedFlavorException, IOException {
+            if (!isDataFlavorSupported(flavor)) {
+                throw new UnsupportedFlavorException(flavor);
+            }
+            return files;
+        }
     }
 
 

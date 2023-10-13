@@ -25,6 +25,22 @@ public class JswFileDropLabel extends JLabel {
         initDropTarget();
     }
 
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            JFrame frame = new JFrame("File Drop Label");
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setSize(300, 200);
+            frame.setLocationRelativeTo(null);
+
+            JswFileDropLabel label = new JswFileDropLabel();
+            label.setText("Drop files here");
+            label.setHorizontalAlignment(SwingConstants.CENTER);
+            frame.add(label);
+
+            frame.setVisible(true);
+        });
+    }
+
     private void initDropTarget() {
         DropTarget dt = new DropTarget(this, DnDConstants.ACTION_COPY_OR_MOVE, null);
         dt.setActive(true);
@@ -67,22 +83,6 @@ public class JswFileDropLabel extends JLabel {
 // 处理拖拽过来的文件
             System.out.println("File: " + file.getAbsolutePath());
         }
-    }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            JFrame frame = new JFrame("File Drop Label");
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.setSize(300, 200);
-            frame.setLocationRelativeTo(null);
-
-            JswFileDropLabel label = new JswFileDropLabel();
-            label.setText("Drop files here");
-            label.setHorizontalAlignment(SwingConstants.CENTER);
-            frame.add(label);
-
-            frame.setVisible(true);
-        });
     }
 
     public interface IFileDropLabelCallBack {
