@@ -4,6 +4,7 @@ package com.chat2;
 import org.yifan.hao.DateUtil;
 import org.yifan.hao.WinUtils;
 import org.yifan.hao.swing.JswCustomWight;
+import org.yifan.hao.swing.JswOnLongClickListener;
 
 import javax.swing.*;
 import java.awt.*;
@@ -56,43 +57,55 @@ public class SwingSocketExample {
             }
         });
         JPanel buttonPanel = new JPanel(new FlowLayout());
-        buttonPanel.add(JswCustomWight.getJButton("启动服务端", e -> {
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    socketUtils.startService(9090, new SocketUtils.IReceiverMsg() {
-                        @Override
-                        public void receiverMsg(String receiveMsg) {
-                            System.out.println("接收到客户端信息: " + receiveMsg);
-                        }
-                    });
-                }
-            }).start();
+        buttonPanel.add(JswCustomWight.getJButton("启动服务端", new JswOnLongClickListener() {
+            @Override
+            public void onClick() {
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        socketUtils.startService(9090, new SocketUtils.IReceiverMsg() {
+                            @Override
+                            public void receiverMsg(String receiveMsg) {
+                                System.out.println("接收到客户端信息: " + receiveMsg);
+                            }
+                        });
+                    }
+                }).start();
+            }
         }));
-        buttonPanel.add(JswCustomWight.getJButton("客户端连接", e -> {
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    socketUtils.connService(WinUtils.getIpV4(), 9090, new SocketUtils.IReceiverMsg() {
-                        @Override
-                        public void receiverMsg(String receiveMsg) {
-                            System.out.println("接收到服务端信息: " + receiveMsg);
-                        }
-                    });
-                }
-            }).start();
+        buttonPanel.add(JswCustomWight.getJButton("客户端连接", new JswOnLongClickListener() {
+            @Override
+            public void onClick() {
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        socketUtils.connService(WinUtils.getIpV4(), 9090, new SocketUtils.IReceiverMsg() {
+                            @Override
+                            public void receiverMsg(String receiveMsg) {
+                                System.out.println("接收到服务端信息: " + receiveMsg);
+                            }
+                        });
+                    }
+                }).start();
+            }
         }));
-        buttonPanel.add(JswCustomWight.getJButton("服务端发送", e -> {
-            String str = "服务端发送:" + DateUtil.formatCurrentDate(DateUtil.REGEX_DATE_TIME);
-            String path = "E:/01/《激情焚烧》【NJ：小莫】.mp3";
-            socketUtils.sendFileToClient(path);
+        buttonPanel.add(JswCustomWight.getJButton("服务端发送", new JswOnLongClickListener() {
+            @Override
+            public void onClick() {
+                String str = "服务端发送:" + DateUtil.formatCurrentDate(DateUtil.REGEX_DATE_TIME);
+                String path = "E:/01/《激情焚烧》【NJ：小莫】.mp3";
+                socketUtils.sendFileToClient(path);
 //            socketUtils.sendMsgToClient(str);
+            }
         }));
-        buttonPanel.add(JswCustomWight.getJButton("客户端发送", e -> {
-            String str = "客户端发送:" + DateUtil.formatCurrentDate(DateUtil.REGEX_DATE_TIME);
-            String path = "E:/01/《激情焚烧》【NJ：小莫】.mp3";
-            socketUtils.sendFileToService(path);
+        buttonPanel.add(JswCustomWight.getJButton("客户端发送", new JswOnLongClickListener() {
+            @Override
+            public void onClick() {
+                String str = "客户端发送:" + DateUtil.formatCurrentDate(DateUtil.REGEX_DATE_TIME);
+                String path = "E:/01/《激情焚烧》【NJ：小莫】.mp3";
+                socketUtils.sendFileToService(path);
 //            socketUtils.sendMsgToClient(str);
+            }
         }));
         jFrame.add(buttonPanel);
         jFrame.add(tv);

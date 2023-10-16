@@ -18,14 +18,14 @@ public class KeyboardListenerExample {
     public static void main(String[] args) {
         JFrame frame = new JFrame("Keyboard Listener Example");
         JTextArea textArea = new JTextArea(10, 30);
-
+        textArea.setEnabled(false);
         NativeKeyListener nativeKeyListener = new NativeKeyListener() {
             @Override
             public void nativeKeyPressed(NativeKeyEvent e) {
                 SwingUtilities.invokeLater(() -> {
                     int keyCode = e.getKeyCode();
                     String keyText = NativeKeyEvent.getKeyText(keyCode);
-                    textArea.append(keyText + " pressed\n");
+                    textArea.append(keyText + " " + keyCode + " \n");
                 });
             }
 

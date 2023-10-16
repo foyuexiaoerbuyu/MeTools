@@ -1,15 +1,57 @@
 package com.test;
 
+import org.yifan.hao.swing.JswCustomWight;
+import org.yifan.hao.swing.JswOnLongClickListener;
+
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 /**
- * 右键菜单
+ * 右键菜单  监听按键
  */
 public class RightClickMenuExample {
     public static void main(String[] args) {
         JFrame frame = new JFrame("Right Click Menu Example");
-        JPanel panel = new JPanel();
+        JPanel panel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        panel.add(JswCustomWight.getJButtonMargin("test1", new JswOnLongClickListener() {
+            @Override
+            public void onClick() {
 
+            }
+        }));
+        panel.add(JswCustomWight.getJButtonMargin("test2", new JswOnLongClickListener() {
+            @Override
+            public void onClick() {
+
+            }
+        }));
+        frame.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                // 键盘按下并释放了某个键，但不包括特殊功能键（如Shift、Ctrl等）
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                // 键盘按下某个键
+                if (e.getKeyCode() == KeyEvent.VK_DELETE) {
+                    System.out.println("e = " + e.getKeyCode());
+                } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+                    //adb shell input swipe 500 500 100 500 20
+                    System.out.println("e1 = " + e.getKeyCode());
+                } else {
+                    System.out.println("e2 = " + e.getKeyCode());
+                }
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                // 键盘释放某个键
+
+            }
+        });
         // 创建右键菜单
         JPopupMenu popupMenu = new JPopupMenu();
         JMenuItem menuItem1 = new JMenuItem("菜单项1");
@@ -47,7 +89,7 @@ public class RightClickMenuExample {
 
         frame.getContentPane().add(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(300, 200);
+        frame.setSize(500, 300);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }

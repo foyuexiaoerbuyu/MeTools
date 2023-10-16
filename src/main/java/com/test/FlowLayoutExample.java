@@ -1,4 +1,4 @@
-package com;
+package com.test;
 
 
 import org.yifan.hao.swing.JswCustomWight;

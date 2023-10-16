@@ -312,6 +312,7 @@ public class JswCustomWight {
     /**
      * 按钮
      */
+    @Deprecated
     public static JButton getJButton(String text, ActionListener actionListener) {
         JButton label = new JButton(text);
         label.setMargin(new Insets(0, 0, 0, 0)); // 设置按钮的内边距为0
