@@ -237,6 +237,10 @@ public class StringUtil {
         default void readLinEx(IOException exception) {
 
         }
+
+        default void end() {
+
+        }
     }
 
 

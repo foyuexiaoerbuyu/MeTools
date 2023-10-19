@@ -15,6 +15,7 @@ import java.awt.event.MouseEvent;
 import java.io.*;
 import java.net.*;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Timer;
 import java.util.*;
@@ -846,5 +847,30 @@ public class WinUtils {
         }
     }
 
+    /**
+     * 批量打开网页
+     */
+    public static void batchOpenUrl() throws Exception {
 
+        String s = WinUtils.getSysClipboardText();
+        System.out.println("s = " + s);
+        BufferedReader br = new BufferedReader(new InputStreamReader(new ByteArrayInputStream(s.getBytes(StandardCharsets.UTF_8)), StandardCharsets.UTF_8));
+        String line;
+        while ((line = br.readLine()) != null) {
+            line = line.trim();
+            if (!line.equals("") && line.trim().length() > 0 && line.startsWith("http")) {
+                String[] urls = line.split("http");
+                if (urls.length > 1) {
+                    for (String url : urls) {
+                        if (url.trim().length() == 0) {
+                            continue;
+                        }
+                        WinUtils.open("http" + url);
+                    }
+                } else {
+                    WinUtils.open(line);
+                }
+            }
+        }
+    }
 }
