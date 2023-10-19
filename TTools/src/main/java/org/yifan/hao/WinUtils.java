@@ -3,6 +3,7 @@ package org.yifan.hao;
 
 import com.google.gson.JsonObject;
 import org.yifan.hao.swing.JswCustomWight;
+import org.yifan.hao.swing.JswDialogUtils;
 import org.yifan.hao.swing.JswOnLongClickListener;
 
 import javax.swing.*;
@@ -873,4 +874,26 @@ public class WinUtils {
             }
         }
     }
+
+    /**
+     * 生成批量网址
+     */
+    public static void batchCreateUrl() {
+        String s = JswDialogUtils.showEditDialogSimple("生成批量网址", "使用@符号分割", WinUtils.getSysClipboardText());
+        try {
+            if (s != null) {
+                String[] split = s.split("@");
+                StringBuilder sb = new StringBuilder();
+                int startNum = Integer.parseInt(split[1]);
+                for (int i = 0; i < 100; i++) {
+                    sb.append(split[0]).append(startNum + i).append(split[2]).append("\n");
+                }
+                WinUtils.setSysClipboardText(sb.toString());
+                JswDialogUtils.show("生成完毕");
+            }
+        } catch (Exception e) {
+            JswDialogUtils.show("生成失败: " + e.getMessage());
+        }
+    }
+
 }

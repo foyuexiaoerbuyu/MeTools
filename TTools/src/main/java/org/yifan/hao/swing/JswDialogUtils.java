@@ -1,5 +1,7 @@
 package org.yifan.hao.swing;
 
+import org.yifan.hao.StringUtil;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
@@ -27,7 +29,11 @@ public class JswDialogUtils {
         }
     }
 
-    public static void showEditDialog(String textContent, ICallBack iCallBack) {
+    public static void showEditDialog(String title, String content, ICallBack iCallBack) {
+        showEditDialog(title, "", content, "", iCallBack);
+    }
+
+    public static void showEditDialog(String title, String titleHint, String content, String contentHint, ICallBack iCallBack) {
         JDialog jDialog = new JDialog();
         jDialog.setTitle("编辑对话框");
         jDialog.setSize(350, 300);
@@ -40,15 +46,56 @@ public class JswDialogUtils {
 
         // 创建一个文本编辑框
         JTextArea textAreaTitle = new JTextArea();
+        if (StringUtil.isEmpty(title)) {
+            textAreaTitle.setText(titleHint);
+        }
+        textAreaTitle.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                System.out.println("textAreaTitle.getText().equals(titleHint) = " + textAreaTitle.getText().equals(titleHint));
+                //获取焦点
+                if (textAreaTitle.getText().trim().equals(titleHint)) {
+                    textAreaTitle.setText("");
+                }
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                //失去焦点
+                System.out.println(textAreaTitle.getText().isEmpty());
+                if (textAreaTitle.getText().isEmpty()) {
+                    textAreaTitle.setText(titleHint);
+                }
+            }
+        });
 //        textAreaTitle.setText(text);
         JScrollPane scrollPane1 = new JScrollPane(textAreaTitle);
         jDialog.add(scrollPane1, BorderLayout.NORTH);
         // 创建一个文本编辑框
         JTextArea textAreaContent = new JTextArea();
-        textAreaContent.setText(textContent);
+        if (StringUtil.isEmpty(content)) {
+            textAreaContent.setText(contentHint);
+        }
         JScrollPane scrollPane = new JScrollPane(textAreaContent);
         jDialog.add(scrollPane, BorderLayout.CENTER);
 
+        textAreaContent.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                //获取焦点
+                if (textAreaContent.getText().equals(contentHint)) {
+                    textAreaContent.setText("");
+                }
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                //失去焦点
+                if (textAreaContent.getText().isEmpty()) {
+                    textAreaContent.setText(contentHint);
+                }
+            }
+        });
         // 创建底部按钮面板
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
 
