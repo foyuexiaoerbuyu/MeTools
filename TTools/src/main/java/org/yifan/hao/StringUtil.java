@@ -150,6 +150,49 @@ public class StringUtil {
     }
 
     /**
+     * 按行读取字符串
+     */
+    public static void readStrByLins(String str, IReadLin iReadLin) {
+        try {
+            BufferedReader br = new BufferedReader(new InputStreamReader(new ByteArrayInputStream(str.getBytes(StandardCharsets.UTF_8)), StandardCharsets.UTF_8));
+            String line;
+            while ((line = br.readLine()) != null) {
+                iReadLin.readLin(line.trim());
+            }
+        } catch (IOException e) {
+            iReadLin.readLinEx(e);
+        }
+    }
+
+    /**
+     * 首字母转大写
+     *
+     * @param s
+     * @return
+     */
+    public static String toUpperCaseFirstOne(String s) {
+        if (Character.isUpperCase(s.charAt(0))) {
+            return s;
+        } else {
+            return (new StringBuilder()).append(Character.toUpperCase(s.charAt(0))).append(s.substring(1)).toString();
+        }
+    }
+
+    /**
+     * 首字母转小写
+     *
+     * @param s
+     * @return
+     */
+    public static String toLowerCaseFirstOne(String s) {
+        if (Character.isLowerCase(s.charAt(0))) {
+            return s;
+        } else {
+            return (new StringBuilder()).append(Character.toLowerCase(s.charAt(0))).append(s.substring(1)).toString();
+        }
+    }
+
+    /**
      * 作用:       去除开头结尾的逗号
      *
      * @param str 要操作的字符串
@@ -188,54 +231,15 @@ public class StringUtil {
         return str;
     }
 
-    /**
-     * 按行读取字符串
-     */
-    public static void readStrByLins(String str, IReadLin iReadLin) {
-        try {
-            BufferedReader br = new BufferedReader(new InputStreamReader(new ByteArrayInputStream(str.getBytes(StandardCharsets.UTF_8)), StandardCharsets.UTF_8));
-            String line;
-            while ((line = br.readLine()) != null) {
-                iReadLin.readLin(line.trim());
-            }
-        } catch (IOException e) {
-            iReadLin.readLinEx(e);
-        }
-    }
-
     public interface IReadLin {
         void readLin(String lin);
 
         default void readLinEx(IOException exception) {
 
         }
-    }
 
-    /**
-     * 首字母转大写
-     *
-     * @param s
-     * @return
-     */
-    public static String toUpperCaseFirstOne(String s) {
-        if (Character.isUpperCase(s.charAt(0))) {
-            return s;
-        } else {
-            return (new StringBuilder()).append(Character.toUpperCase(s.charAt(0))).append(s.substring(1)).toString();
-        }
-    }
+        default void end() {
 
-    /**
-     * 首字母转小写
-     *
-     * @param s
-     * @return
-     */
-    public static String toLowerCaseFirstOne(String s) {
-        if (Character.isLowerCase(s.charAt(0))) {
-            return s;
-        } else {
-            return (new StringBuilder()).append(Character.toLowerCase(s.charAt(0))).append(s.substring(1)).toString();
         }
     }
 
