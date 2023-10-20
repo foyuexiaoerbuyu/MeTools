@@ -1,4 +1,4 @@
-package hao;
+package org.yifan.hao;
 
 import javax.swing.filechooser.FileSystemView;
 import java.io.*;

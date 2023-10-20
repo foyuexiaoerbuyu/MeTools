@@ -1,4 +1,4 @@
-package hao.swing;
+package org.yifan.hao.swing;
 
 import javax.swing.*;
 

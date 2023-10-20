@@ -1,4 +1,4 @@
-package hao;
+package org.yifan.hao;
 
 import java.text.DecimalFormat;
 import java.text.ParseException;

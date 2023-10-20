@@ -1,4 +1,4 @@
-package hao;
+package org.yifan.hao;
 
 import java.util.Random;
 

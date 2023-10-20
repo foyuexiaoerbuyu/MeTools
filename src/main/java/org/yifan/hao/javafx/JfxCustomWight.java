@@ -1,4 +1,4 @@
-package hao.javafx;
+package org.yifan.hao.javafx;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;

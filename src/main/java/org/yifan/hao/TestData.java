@@ -1,4 +1,4 @@
-package hao;
+package org.yifan.hao;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;

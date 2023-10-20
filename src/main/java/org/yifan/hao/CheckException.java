@@ -1,4 +1,4 @@
-package hao;
+package org.yifan.hao;
 
 public class CheckException extends Exception {
 

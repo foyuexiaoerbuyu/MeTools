@@ -1,4 +1,4 @@
-package hao;
+package org.yifan.hao;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
