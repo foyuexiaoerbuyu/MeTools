@@ -22,7 +22,9 @@ public class DateUtil {
      */
     public static final String REGEX_DATE_TIME = "yyyy-MM-dd kk:mm:ss";
 
-    /** yyyy-MM-dd HH:mm:ss:SSS */
+    /**
+     * yyyy-MM-dd HH:mm:ss:SSS
+     */
     public static final String REGEX_DATE_TIME_MILL = "yyyy-MM-dd kk:mm:ss:SSS";
 
     /**
@@ -88,7 +90,7 @@ public class DateUtil {
 
     /**
      * @param seconds 时间字符串(例如:1600421227)
-     * @param format 格式
+     * @param format  格式
      * @return 转换后的格式
      */
     public static String timeStamp2Date(String seconds, String format) {

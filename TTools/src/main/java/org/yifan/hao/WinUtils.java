@@ -3,6 +3,7 @@ package org.yifan.hao;
 
 import com.google.gson.JsonObject;
 import org.yifan.hao.swing.JswCustomWight;
+import org.yifan.hao.swing.JswDialogUtils;
 import org.yifan.hao.swing.JswOnLongClickListener;
 
 import javax.swing.*;
@@ -15,11 +16,14 @@ import java.awt.event.MouseEvent;
 import java.io.*;
 import java.net.*;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Timer;
 import java.util.*;
 
 public class WinUtils {
+
+    private static Point mousePosition;
 
     /**
      * 1. 从剪切板获得文字。
@@ -238,7 +242,6 @@ public class WinUtils {
         return localHost.getHostAddress();
     }
 
-
     /**
      * 查看本机某端口是否被占用
      *
@@ -335,31 +338,6 @@ public class WinUtils {
      */
     public static Point getMouseCurPos() {
         return MouseInfo.getPointerInfo().getLocation();
-    }
-
-    /**
-     * 5.通过流获取，可读取图文混合
-     */
-    public void getImageAndTextFromClipboard() throws Exception {
-        Clipboard sysClip = Toolkit.getDefaultToolkit().getSystemClipboard();
-        Transferable clipTf = sysClip.getContents(null);
-        DataFlavor[] dataList = clipTf.getTransferDataFlavors();
-        int wholeLength = 0;
-        for (int i = 0; i < dataList.length; i++) {
-            DataFlavor data = dataList[i];
-            if (data.getSubType().equals("rtf")) {
-                Reader reader = data.getReaderForText(clipTf);
-                OutputStreamWriter osw = new OutputStreamWriter(
-                        new FileOutputStream("d:\\test.rtf"));
-                char[] c = new char[1024];
-                int leng = -1;
-                while ((leng = reader.read(c)) != -1) {
-                    osw.write(c, wholeLength, leng);
-                }
-                osw.flush();
-                osw.close();
-            }
-        }
     }
 
     /**
@@ -525,33 +503,6 @@ public class WinUtils {
         clipboard.setContents(fileTransferable, null);
     }
 
-    static class FileTransferable implements Transferable {
-        private List files;
-
-        public FileTransferable(List files) {
-            this.files = files;
-        }
-
-        @Override
-        public DataFlavor[] getTransferDataFlavors() {
-            return new DataFlavor[]{DataFlavor.javaFileListFlavor};
-        }
-
-        @Override
-        public boolean isDataFlavorSupported(DataFlavor flavor) {
-            return flavor.equals(DataFlavor.javaFileListFlavor);
-        }
-
-        @Override
-        public Object getTransferData(DataFlavor flavor) throws UnsupportedFlavorException, IOException {
-            if (!isDataFlavorSupported(flavor)) {
-                throw new UnsupportedFlavorException(flavor);
-            }
-            return files;
-        }
-    }
-
-
     /**
      * 把文本设置到剪贴板（复制）
      */
@@ -580,19 +531,6 @@ public class WinUtils {
             return;
         }
         iReadLin.end();
-    }
-
-
-    public interface IReadLin {
-        void readLin(String filePath);
-
-        default void onException(Exception exception) {
-
-        }
-
-        default void end() {
-
-        }
     }
 
     /**
@@ -734,9 +672,6 @@ public class WinUtils {
         r.mouseMove(screenCenterPos[0], screenCenterPos[1]);
     }
 
-
-    private static Point mousePosition;
-
     /**
      * @throws AWTException 显示鼠标位置
      */
@@ -841,5 +776,121 @@ public class WinUtils {
 
     }
 
+    /**
+     * 是否为盘符开头
+     */
+    public static boolean startsWithWindowsDrive(String str) {
+        if (str == null) return false;
+        // 使用正则表达式判断字符串是否以 Windows 盘符开头
+        return str.trim().matches("^[A-Za-z]:\\\\.*");
+    }
+
+    /**
+     * 5.通过流获取，可读取图文混合
+     */
+    public void getImageAndTextFromClipboard() throws Exception {
+        Clipboard sysClip = Toolkit.getDefaultToolkit().getSystemClipboard();
+        Transferable clipTf = sysClip.getContents(null);
+        DataFlavor[] dataList = clipTf.getTransferDataFlavors();
+        int wholeLength = 0;
+        for (int i = 0; i < dataList.length; i++) {
+            DataFlavor data = dataList[i];
+            if (data.getSubType().equals("rtf")) {
+                Reader reader = data.getReaderForText(clipTf);
+                OutputStreamWriter osw = new OutputStreamWriter(
+                        new FileOutputStream("d:\\test.rtf"));
+                char[] c = new char[1024];
+                int leng = -1;
+                while ((leng = reader.read(c)) != -1) {
+                    osw.write(c, wholeLength, leng);
+                }
+                osw.flush();
+                osw.close();
+            }
+        }
+    }
+
+    public interface IReadLin {
+        void readLin(String filePath);
+
+        default void onException(Exception exception) {
+
+        }
+
+        default void end() {
+
+        }
+    }
+
+    static class FileTransferable implements Transferable {
+        private List files;
+
+        public FileTransferable(List files) {
+            this.files = files;
+        }
+
+        @Override
+        public DataFlavor[] getTransferDataFlavors() {
+            return new DataFlavor[]{DataFlavor.javaFileListFlavor};
+        }
+
+        @Override
+        public boolean isDataFlavorSupported(DataFlavor flavor) {
+            return flavor.equals(DataFlavor.javaFileListFlavor);
+        }
+
+        @Override
+        public Object getTransferData(DataFlavor flavor) throws UnsupportedFlavorException, IOException {
+            if (!isDataFlavorSupported(flavor)) {
+                throw new UnsupportedFlavorException(flavor);
+            }
+            return files;
+        }
+    }
+
+    /**
+     * 批量打开网页
+     */
+    public static void batchOpenUrl() throws Exception {
+
+        String s = WinUtils.getSysClipboardText();
+        System.out.println("s = " + s);
+        BufferedReader br = new BufferedReader(new InputStreamReader(new ByteArrayInputStream(s.getBytes(StandardCharsets.UTF_8)), StandardCharsets.UTF_8));
+        String line;
+        while ((line = br.readLine()) != null) {
+            line = line.trim();
+            if (!line.equals("") && line.trim().length() > 0 && line.startsWith("http")) {
+                String[] urls = line.split("http");
+                if (urls.length > 1) {
+                    for (String url : urls) {
+                        if (url.trim().length() == 0) {
+                            continue;
+                        }
+                        WinUtils.open("http" + url);
+                    }
+                } else {
+                    WinUtils.open(line);
+                }
+            }
+        }
+    }
+
+    /**
+     * 生成批量网址
+     */
+    public static void batchCreateUrl() {
+        JswDialogUtils.showEditDialogSimple("生成批量网址", "使用@符号分割", WinUtils.getSysClipboardText(), content -> {
+            if (content != null) {
+                String[] split = content.split("@");
+                StringBuilder sb = new StringBuilder();
+                int startNum = Integer.parseInt(split[1]);
+                for (int i = 0; i < 100; i++) {
+                    sb.append(split[0]).append(startNum + i).append(split[2]).append("\n");
+                }
+                WinUtils.setSysClipboardText(sb.toString());
+                JswDialogUtils.show("生成完毕");
+            }
+        });
+    }
 
 }

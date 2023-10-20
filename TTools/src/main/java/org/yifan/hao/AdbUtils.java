@@ -202,14 +202,6 @@ public class AdbUtils {
     }
 
     /**
-     * adb执行回调
-     */
-    public interface IAdbExeCallBack {
-        void exeCallBack(String content);
-    }
-
-
-    /**
      * 两台手机点击一下
      */
     public static void testTapForTwoAndroid() {
@@ -438,7 +430,6 @@ public class AdbUtils {
         return content;
     }
 
-
     /**
      * 顶部Activity名称
      */
@@ -452,7 +443,6 @@ public class AdbUtils {
     public static String getTopAppPackageName() {
         return getTopAppPack2ActyName().split("/")[0];
     }
-
 
     /**
      * 前台包名
@@ -504,7 +494,6 @@ public class AdbUtils {
     public static void keepSober() {
         exeCmd("adb shell am start -n com.android.settings/.DisplaySettings");
     }
-
 
     /**
      * 保存屏幕常亮
@@ -571,7 +560,6 @@ public class AdbUtils {
         String s = exeCmd(commandStr);
         System.out.println("adb命令: " + commandStr + " \nadb命令执行结果: " + s + " 文件名:" + fileName);
     }
-
 
     /**
      * @return 设备宽高分辨率(单位 : PX)
@@ -707,11 +695,18 @@ public class AdbUtils {
         exeCmd("adb shell svc data " + (enable ? "enable" : "disadle"));
     }
 
-
     public static void main(String[] args) {
 //adb pull  目标系统中的文件路径(a.txt)  本机系统要存放取出来的路径(a.txt)
 //adb pull  /sdcard/_电脑传输/"MikelProject Demo-dev.zip"  "D:\tmp\MikelProject Demo-dev.zip"
         String activityDetails = getActivityDetails();
         System.out.println("activityDetails = " + activityDetails);
+    }
+
+
+    /**
+     * adb执行回调
+     */
+    public interface IAdbExeCallBack {
+        void exeCallBack(String content);
     }
 }
