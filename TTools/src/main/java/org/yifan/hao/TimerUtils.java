@@ -1,41 +1,57 @@
 package org.yifan.hao;
 
-import org.yifan.hao.swing.JswCustomWight;
-
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class TimerUtils {
-    public static Timer startTimer(JswCustomWight.IDragCallBack iDragCallBack, long delay) {
-        return startTimer(iDragCallBack, delay, 0, false);
-    }
-    public static Timer startTimer(JswCustomWight.IDragCallBack iDragCallBack, long delay, long period) {
-        return startTimer(iDragCallBack, delay, period, false);
-    }
 
-    public static Timer startTimer(final JswCustomWight.IDragCallBack iDragCallBack, long delay, long period, final boolean isStop) {
-        final Timer timer = new Timer();
+    public static Timer startTimer(Runnable runnable, long delay) {
+        Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                if (isStop) {
-                    timer.cancel();
-                    return;
-                }
-                iDragCallBack.dragCallBack("");
+                runnable.run();
+            }
+        }, delay);
+        return timer;
+    }
+
+    public static Timer startTimer(Runnable runnable, long delay, long period) {
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                runnable.run();
             }
         }, delay, period);
         return timer;
     }
 
-    public static Timer startTimer(final JswCustomWight.IDragCallBack iDragCallBack) {
+    public static Timer startTimer(Runnable runnable, long delay, long period, int cyclesNum) {
+        final int[] start = {0};
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                iDragCallBack.dragCallBack("");
+                ++start[0];
+                if (start[0] == cyclesNum) {
+                    timer.cancel();
+                    return;
+                }
+                runnable.run();
             }
-        }, 500, 0);
+        }, delay, period);
+        return timer;
+    }
+
+    public static Timer startTimer(Runnable runnable) {
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                runnable.run();
+            }
+        }, 0, 500);
         return timer;
     }
 

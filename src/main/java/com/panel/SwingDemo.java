@@ -106,7 +106,6 @@ public class SwingDemo implements ActionListener {
         frame.setVisible(true);// 窗口可见
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);// 使能关闭窗口，结束程序
         tabPane.add("会话1", ToolsTab1.getToolsTab(frame));
-//        tabPane.add("会话2", new ControlTab().getTab(frame));
         tabPane.add("会话2", new ToolsTab2().getTab(frame));
         ToolsTab3 tab3 = new ToolsTab3();
         tabPane.add("会话3", tab3.getTab(frame));

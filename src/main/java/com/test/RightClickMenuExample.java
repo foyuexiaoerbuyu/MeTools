@@ -1,7 +1,6 @@
 package com.test;
 
-import org.yifan.hao.swing.JswCustomWight;
-import org.yifan.hao.swing.JswOnLongClickListener;
+import org.yifan.hao.AdbUtils;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,18 +14,18 @@ public class RightClickMenuExample {
     public static void main(String[] args) {
         JFrame frame = new JFrame("Right Click Menu Example");
         JPanel panel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        panel.add(JswCustomWight.getJButtonMargin("test1", new JswOnLongClickListener() {
-            @Override
-            public void onClick() {
-
-            }
-        }));
-        panel.add(JswCustomWight.getJButtonMargin("test2", new JswOnLongClickListener() {
-            @Override
-            public void onClick() {
-
-            }
-        }));
+//        panel.add(JswCustomWight.getJButtonMargin("test1", new JswOnLongClickListener() {
+//            @Override
+//            public void onClick() {
+//
+//            }
+//        }));
+//        panel.add(JswCustomWight.getJButtonMargin("test2", new JswOnLongClickListener() {
+//            @Override
+//            public void onClick() {
+//
+//            }
+//        }));
         frame.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
@@ -38,7 +37,15 @@ public class RightClickMenuExample {
                 // 键盘按下某个键
                 if (e.getKeyCode() == KeyEvent.VK_DELETE) {
                     System.out.println("e = " + e.getKeyCode());
+                    AdbUtils.click(500, 500);
+                    AdbUtils.click(778, 2270);
+                    AdbUtils.click(500, 2000);
+                    AdbUtils.click(500, 500);
                 } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+                    AdbUtils.exeCmd("adb shell input swipe 500 500 100 500 20");
+                    System.out.println("e1 = " + e.getKeyCode());
+                } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+                    AdbUtils.exeCmd("adb shell input swipe 100 500 500 500 20");
                     //adb shell input swipe 500 500 100 500 20
                     System.out.println("e1 = " + e.getKeyCode());
                 } else {
