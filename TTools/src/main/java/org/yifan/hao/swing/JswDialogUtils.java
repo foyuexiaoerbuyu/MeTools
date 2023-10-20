@@ -12,9 +12,22 @@ import java.util.TimerTask;
 
 public class JswDialogUtils {
 
+    @Deprecated
     public static String showEditDialogSimple(String title, String message, String defaultValue) {
         return JOptionPane.showInputDialog(null, message, title, JOptionPane.PLAIN_MESSAGE, null, null, defaultValue).toString();
 //        return JOptionPane.showInputDialog(null, message, title, JOptionPane.PLAIN_MESSAGE);
+    }
+
+    public static void showEditDialogSimple(String title, String message, String defaultValue,ISimpleCallBack iCallBack) {
+        String inputValue = JOptionPane.showInputDialog(null, message, title, JOptionPane.PLAIN_MESSAGE, null, null, defaultValue).toString();
+        if (inputValue != null) {
+            iCallBack.str(inputValue);
+            // 用户点击了确定按钮，执行相应操作
+            System.out.println("用户输入的值是：" + inputValue);
+        } else {
+            // 用户点击了取消按钮，执行相应操作
+            System.out.println("用户取消了输入");
+        }
     }
 
     public static void showEditDialogSimple(String defaultValue, ISimpleCallBack iCallBack) {
