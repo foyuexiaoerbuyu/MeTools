@@ -879,10 +879,9 @@ public class WinUtils {
      * 生成批量网址
      */
     public static void batchCreateUrl() {
-        String s = JswDialogUtils.showEditDialogSimple("生成批量网址", "使用@符号分割", WinUtils.getSysClipboardText());
-        try {
-            if (s != null) {
-                String[] split = s.split("@");
+        JswDialogUtils.showEditDialogSimple("生成批量网址", "使用@符号分割", WinUtils.getSysClipboardText(), content -> {
+            if (content != null) {
+                String[] split = content.split("@");
                 StringBuilder sb = new StringBuilder();
                 int startNum = Integer.parseInt(split[1]);
                 for (int i = 0; i < 100; i++) {
@@ -891,9 +890,7 @@ public class WinUtils {
                 WinUtils.setSysClipboardText(sb.toString());
                 JswDialogUtils.show("生成完毕");
             }
-        } catch (Exception e) {
-            JswDialogUtils.show("生成失败: " + e.getMessage());
-        }
+        });
     }
 
 }
